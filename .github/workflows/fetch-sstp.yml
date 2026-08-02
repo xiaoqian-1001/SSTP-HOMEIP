@@ -24,14 +24,11 @@ jobs:
       - name: Fetch and generate SSTP server list
         run: python scripts/fetch_sstp.py
 
-      - name: Fetch and check free HTTP/SOCKS5 proxies
-        run: python scripts/fetch_proxies.py
-
       - name: Commit and push if changed
         env:
           BRANCH: ${{ github.ref_name }}
         run: |
-          git add sstp-list.txt sstp.json socks5-list.txt socks5.json http-list.txt http.json
+          git add sstp-list.txt sstp.json
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
