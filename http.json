@@ -1,19 +1,121 @@
 {
-  "updated": "2026-08-02 06:27:43 UTC",
+  "updated": "2026-08-02 06:35:24 UTC",
   "type": "http",
   "source": [
     "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt",
     "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-http.txt"
   ],
-  "count": 3,
+  "count": 34,
   "servers": [
     {
-      "candidate": "47.238.128.246:85",
-      "link": "http://47.238.128.246:85",
+      "candidate": "123.138.24.113:8800",
+      "link": "http://123.138.24.113:8800",
       "success": true,
-      "responseTime": 5021,
-      "colo": "HKG",
-      "exit_ip": "47.238.128.246",
+      "responseTime": 2095,
+      "colo": "MSP",
+      "exit_ip": "123.138.24.113",
+      "country": "China",
+      "countryCode": "CN",
+      "asn": 4837,
+      "org": "CHINA UNICOM China169 Backbone",
+      "risk": {
+        "score": 0.3045,
+        "percent": 30.45,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "123.138.24.114:9480",
+      "link": "http://123.138.24.114:9480",
+      "success": true,
+      "responseTime": 2883,
+      "colo": "MSP",
+      "exit_ip": "123.138.24.114",
+      "country": "China",
+      "countryCode": "CN",
+      "asn": 4837,
+      "org": "CHINA UNICOM China169 Backbone",
+      "risk": {
+        "score": 0.3045,
+        "percent": 30.45,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "129.226.72.101:18080",
+      "link": "http://129.226.72.101:18080",
+      "success": true,
+      "responseTime": 1270,
+      "colo": "MSP",
+      "exit_ip": "129.226.72.101",
+      "country": "Hong Kong",
+      "countryCode": "HK",
+      "asn": 132203,
+      "org": "Shenzhen Tencent Computer Systems Company Limited",
+      "risk": {
+        "score": 0.3652,
+        "percent": 36.52,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "135.87.39.23:9443",
+      "link": "http://135.87.39.23:9443",
+      "success": true,
+      "responseTime": 804,
+      "colo": "MSP",
+      "exit_ip": "135.87.39.23",
+      "country": "Finland",
+      "countryCode": "FI",
+      "asn": 8983,
+      "org": "Nokia Solutions and Networks Oy",
+      "risk": {
+        "score": 0.3007,
+        "percent": 30.07,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "138.197.68.35:4857",
+      "link": "http://138.197.68.35:4857",
+      "success": true,
+      "responseTime": 407,
+      "colo": "MSP",
+      "exit_ip": "138.197.68.35",
+      "country": "United States",
+      "countryCode": "US",
+      "asn": 14061,
+      "org": "DigitalOcean, LLC",
+      "risk": {
+        "score": 0.6235,
+        "percent": 62.35,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "144.124.227.88:3128",
+      "link": "http://144.124.227.88:3128",
+      "success": true,
+      "responseTime": 1394,
+      "colo": "MSP",
+      "exit_ip": "144.124.227.88",
+      "country": "The Netherlands",
+      "countryCode": "NL",
+      "asn": 216071,
+      "org": "SERVERS TECH FZCO",
+      "risk": {
+        "score": 0.666,
+        "percent": 66.6,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "149.129.226.9:4002",
+      "link": "http://149.129.226.9:4002",
+      "success": true,
+      "responseTime": 6424,
+      "colo": "MSP",
+      "exit_ip": "149.129.226.9",
       "country": "United Kingdom",
       "countryCode": "GB",
       "asn": 304215,
@@ -25,12 +127,233 @@
       }
     },
     {
-      "candidate": "47.74.46.81:8080",
-      "link": "http://47.74.46.81:8080",
+      "candidate": "159.203.61.169:3128",
+      "link": "http://159.203.61.169:3128",
       "success": true,
-      "responseTime": 5171,
-      "colo": "HKG",
-      "exit_ip": "47.74.46.81",
+      "responseTime": 238,
+      "colo": "MSP",
+      "exit_ip": "159.203.61.169",
+      "country": "Canada",
+      "countryCode": "CA",
+      "asn": 14061,
+      "org": "DigitalOcean, LLC",
+      "risk": {
+        "score": 0.622,
+        "percent": 62.2,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "160.191.192.45:8090",
+      "link": "http://160.191.192.45:8090",
+      "success": true,
+      "responseTime": 12331,
+      "colo": "MSP",
+      "exit_ip": "160.191.192.45",
+      "country": "Indonesia",
+      "countryCode": "ID",
+      "asn": 153155,
+      "org": "IDNIC SIGMADATANUSA AS ID",
+      "risk": {
+        "score": 0.3295,
+        "percent": 32.95,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "165.225.66.38:11203",
+      "link": "http://165.225.66.38:11203",
+      "success": true,
+      "responseTime": 602,
+      "colo": "MSP",
+      "exit_ip": "165.225.67.36",
+      "country": "Switzerland",
+      "countryCode": "CH",
+      "asn": 62044,
+      "org": "Zscaler Switzerland GmbH",
+      "risk": {
+        "score": 0.0015,
+        "percent": 0.15,
+        "level": "verylow"
+      }
+    },
+    {
+      "candidate": "177.93.49.112:999",
+      "link": "http://177.93.49.112:999",
+      "success": true,
+      "responseTime": 6103,
+      "colo": "MSP",
+      "exit_ip": "177.93.49.112",
+      "country": "Colombia",
+      "countryCode": "CO",
+      "asn": 262186,
+      "org": "TV AZTECA SUCURSAL COLOMBIA",
+      "risk": {
+        "score": 0.3608,
+        "percent": 36.08,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "185.247.117.155:8080",
+      "link": "http://185.247.117.155:8080",
+      "success": true,
+      "responseTime": 627,
+      "colo": "MSP",
+      "exit_ip": "185.247.117.155",
+      "country": "The Netherlands",
+      "countryCode": "NL",
+      "asn": 41436,
+      "org": "Kamatera Inc",
+      "risk": {
+        "score": 0.151,
+        "percent": 15.1,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "198.199.86.11:3128",
+      "link": "http://198.199.86.11:3128",
+      "success": true,
+      "responseTime": 417,
+      "colo": "MSP",
+      "exit_ip": "198.199.86.11",
+      "country": "United States",
+      "countryCode": "US",
+      "asn": 14061,
+      "org": "DigitalOcean, LLC",
+      "risk": {
+        "score": 0.6735,
+        "percent": 67.35,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "20.27.13.35:8561",
+      "link": "http://20.27.13.35:8561",
+      "success": true,
+      "responseTime": 7535,
+      "colo": "MSP",
+      "exit_ip": "20.27.15.111",
+      "country": "Japan",
+      "countryCode": "JP",
+      "asn": 8075,
+      "org": "Microsoft Corporation",
+      "risk": {
+        "score": 0.3052,
+        "percent": 30.52,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "200.95.184.50:999",
+      "link": "http://200.95.184.50:999",
+      "success": true,
+      "responseTime": 7562,
+      "colo": "MSP",
+      "exit_ip": "200.95.184.205",
+      "country": "Chile",
+      "countryCode": "CL",
+      "asn": 264859,
+      "org": "Comunicaciones Cablevision Ltda.",
+      "risk": {
+        "score": 0.0513,
+        "percent": 5.12,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "34.134.231.117:3129",
+      "link": "http://34.134.231.117:3129",
+      "success": true,
+      "responseTime": 5703,
+      "colo": "MSP",
+      "exit_ip": "34.134.231.117",
+      "country": "United States",
+      "countryCode": "US",
+      "asn": 396982,
+      "org": "Google LLC",
+      "risk": {
+        "score": 0.3122,
+        "percent": 31.22,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "39.102.214.192:9098",
+      "link": "http://39.102.214.192:9098",
+      "success": true,
+      "responseTime": 5668,
+      "colo": "MSP",
+      "exit_ip": "39.102.214.192",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "asn": 304215,
+      "org": "DMUAPF Company, LLC",
+      "risk": {
+        "score": 0.1568,
+        "percent": 15.68,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "47.104.28.135:3128",
+      "link": "http://47.104.28.135:3128",
+      "success": true,
+      "responseTime": 7208,
+      "colo": "MSP",
+      "exit_ip": "47.104.28.135",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "asn": 304215,
+      "org": "DMUAPF Company, LLC",
+      "risk": {
+        "score": 0.1568,
+        "percent": 15.68,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "47.238.130.212:80",
+      "link": "http://47.238.130.212:80",
+      "success": true,
+      "responseTime": 5713,
+      "colo": "MSP",
+      "exit_ip": "47.238.130.212",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "asn": 304215,
+      "org": "DMUAPF Company, LLC",
+      "risk": {
+        "score": 0.1568,
+        "percent": 15.68,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "47.238.60.156:9080",
+      "link": "http://47.238.60.156:9080",
+      "success": true,
+      "responseTime": 5699,
+      "colo": "MSP",
+      "exit_ip": "47.238.60.156",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "asn": 304215,
+      "org": "DMUAPF Company, LLC",
+      "risk": {
+        "score": 0.1568,
+        "percent": 15.68,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "47.250.155.254:89",
+      "link": "http://47.250.155.254:89",
+      "success": true,
+      "responseTime": 6395,
+      "colo": "MSP",
+      "exit_ip": "47.250.155.254",
       "country": "United Kingdom",
       "countryCode": "GB",
       "asn": 304215,
@@ -45,8 +368,8 @@
       "candidate": "47.89.159.212:9098",
       "link": "http://47.89.159.212:9098",
       "success": true,
-      "responseTime": 5694,
-      "colo": "HKG",
+      "responseTime": 5108,
+      "colo": "MSP",
       "exit_ip": "47.89.159.212",
       "country": "United Kingdom",
       "countryCode": "GB",
@@ -56,6 +379,210 @@
         "score": 0.1568,
         "percent": 15.68,
         "level": "elevated"
+      }
+    },
+    {
+      "candidate": "47.91.29.151:8081",
+      "link": "http://47.91.29.151:8081",
+      "success": true,
+      "responseTime": 5474,
+      "colo": "MSP",
+      "exit_ip": "47.91.29.151",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "asn": 304215,
+      "org": "DMUAPF Company, LLC",
+      "risk": {
+        "score": 0.1568,
+        "percent": 15.68,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "5.202.120.123:3128",
+      "link": "http://5.202.120.123:3128",
+      "success": true,
+      "responseTime": 1629,
+      "colo": "MSP",
+      "exit_ip": "5.202.120.123",
+      "country": "Iran",
+      "countryCode": "IR",
+      "asn": 49100,
+      "org": "Pishgaman Toseeh Ertebatat Company (Private Joint Stock)",
+      "risk": {
+        "score": 0.322,
+        "percent": 32.2,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "64.118.147.245:20000",
+      "link": "http://64.118.147.245:20000",
+      "success": true,
+      "responseTime": 1830,
+      "colo": "MSP",
+      "exit_ip": "209.50.186.14",
+      "country": "Italy",
+      "countryCode": "IT",
+      "asn": 200373,
+      "org": "3xK Tech GmbH",
+      "risk": {
+        "score": 0.9952,
+        "percent": 99.52,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "77.247.178.20:3129",
+      "link": "http://77.247.178.20:3129",
+      "success": true,
+      "responseTime": 1024,
+      "colo": "MSP",
+      "exit_ip": "77.247.178.20",
+      "country": "The Netherlands",
+      "countryCode": "NL",
+      "asn": 43350,
+      "org": "NForce Entertainment B.V.",
+      "risk": {
+        "score": 0.4168,
+        "percent": 41.68,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "8.130.71.75:7890",
+      "link": "http://8.130.71.75:7890",
+      "success": true,
+      "responseTime": 5722,
+      "colo": "MSP",
+      "exit_ip": "8.130.71.75",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "asn": 304215,
+      "org": "DMUAPF Company, LLC",
+      "risk": {
+        "score": 0.1568,
+        "percent": 15.68,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "8.211.194.78:5800",
+      "link": "http://8.211.194.78:5800",
+      "success": true,
+      "responseTime": 5359,
+      "colo": "MSP",
+      "exit_ip": "8.211.194.78",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "asn": 304215,
+      "org": "DMUAPF Company, LLC",
+      "risk": {
+        "score": 0.1568,
+        "percent": 15.68,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "8.211.195.139:20002",
+      "link": "http://8.211.195.139:20002",
+      "success": true,
+      "responseTime": 5347,
+      "colo": "MSP",
+      "exit_ip": "8.211.195.139",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "asn": 304215,
+      "org": "DMUAPF Company, LLC",
+      "risk": {
+        "score": 0.1568,
+        "percent": 15.68,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "8.211.195.173:18080",
+      "link": "http://8.211.195.173:18080",
+      "success": true,
+      "responseTime": 5312,
+      "colo": "MSP",
+      "exit_ip": "8.211.195.173",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "asn": 304215,
+      "org": "DMUAPF Company, LLC",
+      "risk": {
+        "score": 0.1568,
+        "percent": 15.68,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "8.213.197.208:8443",
+      "link": "http://8.213.197.208:8443",
+      "success": true,
+      "responseTime": 13184,
+      "colo": "MSP",
+      "exit_ip": "8.213.197.208",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "asn": 304215,
+      "org": "DMUAPF Company, LLC",
+      "risk": {
+        "score": 0.1568,
+        "percent": 15.68,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "8.220.204.92:80",
+      "link": "http://8.220.204.92:80",
+      "success": true,
+      "responseTime": 5701,
+      "colo": "MSP",
+      "exit_ip": "8.220.204.92",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "asn": 304215,
+      "org": "DMUAPF Company, LLC",
+      "risk": {
+        "score": 0.1568,
+        "percent": 15.68,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "94.156.180.137:3128",
+      "link": "http://94.156.180.137:3128",
+      "success": true,
+      "responseTime": 855,
+      "colo": "MSP",
+      "exit_ip": "94.156.180.137",
+      "country": "Finland",
+      "countryCode": "FI",
+      "asn": 207957,
+      "org": "SERV.HOST GROUP LTD",
+      "risk": {
+        "score": 0.5973,
+        "percent": 59.73,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "95.211.64.139:8888",
+      "link": "http://95.211.64.139:8888",
+      "success": true,
+      "responseTime": 610,
+      "colo": "MSP",
+      "exit_ip": "169.150.196.37",
+      "country": "The Netherlands",
+      "countryCode": "NL",
+      "asn": 212238,
+      "org": "Datacamp Limited",
+      "risk": {
+        "score": 1.4805,
+        "percent": 148.05,
+        "level": "critical"
       }
     }
   ]
