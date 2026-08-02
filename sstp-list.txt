@@ -1,0 +1,104 @@
+# vpngate.net SSTP 服务器列表
+# 更新时间: 2026-08-02 04:57:23 UTC
+# 账号: vpn  密码: vpn  端口: 443
+# 格式: sstp://主机:端口 | 国家 | 评分 | 延迟ms | 速度Mbps
+#
+sstp://public-vpn-88:443 | Japan | score 2837699 | ping 19ms | 2480.5 Mbps
+sstp://public-vpn-207:443 | Japan | score 2755690 | ping 21ms | 3962.1 Mbps
+sstp://public-vpn-236:443 | Japan | score 2700371 | ping 9ms | 2363.1 Mbps
+sstp://public-vpn-214:443 | Japan | score 2426104 | ping 14ms | 1689.9 Mbps
+sstp://public-vpn-48:443 | Japan | score 2240727 | ping 17ms | 2308.5 Mbps
+sstp://public-vpn-156:443 | Japan | score 2224682 | ping 29ms | 1764.7 Mbps
+sstp://public-vpn-74:443 | Japan | score 2209222 | ping 8ms | 1905.0 Mbps
+sstp://public-vpn-94:443 | Japan | score 2099747 | ping 9ms | 1912.2 Mbps
+sstp://public-vpn-85:443 | Japan | score 1984010 | ping 22ms | 7673.8 Mbps
+sstp://public-vpn-102:443 | Japan | score 1959648 | ping 11ms | 2029.9 Mbps
+sstp://public-vpn-53:443 | Japan | score 1858036 | ping 15ms | 1629.2 Mbps
+sstp://vpn120445451:443 | United States | score 1854977 | ping 19ms | 1033.1 Mbps
+sstp://public-vpn-205:443 | Japan | score 1846207 | ping 19ms | 1281.7 Mbps
+sstp://public-vpn-240:443 | Japan | score 1655530 | ping 13ms | 1594.2 Mbps
+sstp://public-vpn-47:443 | Japan | score 1599416 | ping 15ms | 2687.8 Mbps
+sstp://vpn551216849:443 | Japan | score 1563729 | ping 1ms | 3589.5 Mbps
+sstp://vpn254329672:443 | Japan | score 1517754 | ping 25ms | 3547.3 Mbps
+sstp://vpn805207565:443 | Japan | score 1500289 | ping 5ms | 340.8 Mbps
+sstp://vpn939926778:443 | Japan | score 1482943 | ping 5ms | 11619.9 Mbps
+sstp://vpn105075797:443 | Japan | score 1460532 | ping 2ms | 4223.5 Mbps
+sstp://opengw:443 | Romania | score 1454066 | ping 21ms | 1449.5 Mbps
+sstp://vpn210060972:443 | Korea Republic of | score 1402841 | ping 27ms | 869.2 Mbps
+sstp://public-vpn-213:443 | Japan | score 1387132 | ping 16ms | 2094.4 Mbps
+sstp://vpn472930231:443 | Korea Republic of | score 1375233 | ping 49ms | 366.3 Mbps
+sstp://vpn893972689:443 | Korea Republic of | score 1371813 | ping 32ms | 3293.9 Mbps
+sstp://vpn937509069:443 | Korea Republic of | score 1348082 | ping 31ms | 457.6 Mbps
+sstp://n26:443 | Japan | score 1323587 | ping 7ms | 2922.7 Mbps
+sstp://vpn956915732:443 | Korea Republic of | score 1292061 | ping 51ms | 251.1 Mbps
+sstp://vpn549895847:443 | Korea Republic of | score 1270992 | ping 28ms | 153.0 Mbps
+sstp://public-vpn-218:443 | Japan | score 1234508 | ping 23ms | 2639.5 Mbps
+sstp://public-vpn-147:443 | Japan | score 1223928 | ping 12ms | 7076.1 Mbps
+sstp://vpn647676585:443 | Korea Republic of | score 1219758 | ping 42ms | 3771.6 Mbps
+sstp://vpn837486372:443 | Korea Republic of | score 1133748 | ping 582ms | 3817.3 Mbps
+sstp://vpn883110986:443 | Korea Republic of | score 1133042 | ping 28ms | 626.7 Mbps
+sstp://vpn534981460:443 | Japan | score 1100846 | ping 42ms | 1513.3 Mbps
+sstp://vpn661548783:443 | Korea Republic of | score 1100331 | ping 41ms | 2703.3 Mbps
+sstp://vpn603234016:443 | Japan | score 1099900 | ping 21ms | 1550.4 Mbps
+sstp://vpn175626757:443 | Japan | score 1059920 | ping 16ms | 3954.4 Mbps
+sstp://cetsssa:443 | Mexico | score 1034305 | ping 26ms | 242.1 Mbps
+sstp://vpn479254153:443 | Japan | score 1020963 | ping 18ms | 1918.0 Mbps
+sstp://vpn245217894:443 | Korea Republic of | score 969465 | ping 31ms | 3255.0 Mbps
+sstp://vpn441803842:443 | Japan | score 965011 | ping 33ms | 484.2 Mbps
+sstp://vpn943218848:443 | Korea Republic of | score 947955 | ping 35ms | 610.4 Mbps
+sstp://vpn940419998:443 | Japan | score 945856 | ping 5ms | 3626.6 Mbps
+sstp://vpn309430266:443 | Japan | score 927878 | ping 5ms | 320.2 Mbps
+sstp://vpn264304330:443 | Japan | score 871293 | ping 3ms | 682.1 Mbps
+sstp://vpn710637381:443 | Japan | score 858891 | ping 13ms | 2394.7 Mbps
+sstp://vpn862880736:443 | Japan | score 826350 | ping 2ms | 4061.0 Mbps
+sstp://vpn892730167:443 | Japan | score 802250 | ping 10ms | 5983.0 Mbps
+sstp://vpn769049153:443 | Korea Republic of | score 794094 | ping 37ms | 755.5 Mbps
+sstp://vpn990198929:443 | Japan | score 790193 | ping 7ms | 7024.2 Mbps
+sstp://vpn648800463:443 | Korea Republic of | score 760197 | ping 30ms | 960.7 Mbps
+sstp://vpn507121601:443 | Korea Republic of | score 752869 | ping 27ms | 3184.4 Mbps
+sstp://vpn291007099:443 | Japan | score 728562 | ping 4ms | 734.6 Mbps
+sstp://vpn676563152:443 | Korea Republic of | score 722745 | ping 32ms | 769.7 Mbps
+sstp://vpn161109829:443 | Japan | score 719387 | ping 4ms | 5531.8 Mbps
+sstp://vpn272949870:443 | Japan | score 717851 | ping 9ms | 320.6 Mbps
+sstp://vpn911251431:443 | Japan | score 715683 | ping 3ms | 4084.4 Mbps
+sstp://vpn810318235:443 | Japan | score 710351 | ping 10ms | 748.7 Mbps
+sstp://vpn653873087:443 | Korea Republic of | score 704238 | ping 35ms | 732.8 Mbps
+sstp://vpn877821761:443 | Japan | score 695255 | ping 3ms | 729.2 Mbps
+sstp://vpn552369767:443 | Japan | score 694269 | ping 10ms | 591.5 Mbps
+sstp://vpn519246867:443 | Korea Republic of | score 693059 | ping 33ms | 149.3 Mbps
+sstp://vpn683264614:443 | Japan | score 691160 | ping 17ms | 737.0 Mbps
+sstp://vpn101373190:443 | Japan | score 690234 | ping 5ms | 7761.5 Mbps
+sstp://vpn953698594:443 | Japan | score 680090 | ping 17ms | 5244.5 Mbps
+sstp://vpn537424733:443 | Japan | score 674837 | ping 3ms | 3204.8 Mbps
+sstp://vpn254301879:443 | Japan | score 670104 | ping 5ms | 777.4 Mbps
+sstp://vpn954254224:443 | Russian Federation | score 668780 | ping 48ms | 2301.8 Mbps
+sstp://vpn279781308:443 | Japan | score 665411 | ping 17ms | 4087.3 Mbps
+sstp://vpn303237728:443 | Japan | score 663130 | ping 10ms | 4647.3 Mbps
+sstp://vpn462278742:443 | Japan | score 661575 | ping 11ms | 427.0 Mbps
+sstp://vpn993894201:443 | Japan | score 661399 | ping 3ms | 3939.2 Mbps
+sstp://vpn591489135:443 | Japan | score 654654 | ping 10ms | 688.0 Mbps
+sstp://vpn464496826:443 | Japan | score 652401 | ping 13ms | 2495.3 Mbps
+sstp://vpn121783190:443 | Korea Republic of | score 646111 | ping 23ms | 1612.5 Mbps
+sstp://vpn738567258:443 | Japan | score 645487 | ping 4ms | 756.1 Mbps
+sstp://vpn818074255:443 | Korea Republic of | score 645265 | ping 26ms | 2935.8 Mbps
+sstp://kanratown:443 | Japan | score 643423 | ping 9ms | 5100.1 Mbps
+sstp://laud:443 | Japan | score 643337 | ping 33ms | 577.7 Mbps
+sstp://vpn416641003:443 | Japan | score 633310 | ping 16ms | 645.7 Mbps
+sstp://vpn441690004:443 | Korea Republic of | score 629616 | ping 28ms | 4493.4 Mbps
+sstp://vpn857468917:443 | Japan | score 629431 | ping 15ms | 508.5 Mbps
+sstp://vpn693017146:443 | Japan | score 628985 | ping 10ms | 17333.8 Mbps
+sstp://vpn778143138:443 | Thailand | score 628470 | ping 7ms | 2444.9 Mbps
+sstp://vpn466142321:443 | Russian Federation | score 623295 | ping 1ms | 547.6 Mbps
+sstp://vpn708445787:443 | Russian Federation | score 618986 | ping 1ms | 598.0 Mbps
+sstp://vpn443080888:443 | Korea Republic of | score 618050 | ping 29ms | 698.1 Mbps
+sstp://vpn403294661:443 | Korea Republic of | score 612108 | ping 33ms | 764.1 Mbps
+sstp://vpn557102870:443 | Japan | score 609934 | ping 6ms | 500.3 Mbps
+sstp://vpn255413803:443 | Japan | score 609757 | ping 22ms | 1501.8 Mbps
+sstp://vpn414914324:443 | Japan | score 608187 | ping 3ms | 773.6 Mbps
+sstp://vpn901347259:443 | Japan | score 607703 | ping 3ms | 4929.6 Mbps
+sstp://vpn767234801:443 | Korea Republic of | score 603368 | ping 32ms | 2537.8 Mbps
+sstp://vpn600535032:443 | Japan | score 599704 | ping 8ms | 776.5 Mbps
+sstp://vpn619847817:443 | Japan | score 583249 | ping 30ms | 4138.3 Mbps
+sstp://vpn837518130:443 | Korea Republic of | score 561453 | ping 28ms | 4389.4 Mbps
+sstp://vpn811012363:443 | Russian Federation | score 559291 | ping 27ms | 378.2 Mbps
+sstp://*:443 |  | score 0 | ping 0ms | 0.0 Mbps
