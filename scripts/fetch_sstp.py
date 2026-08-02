@@ -15,6 +15,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 
 PAGE_URL = "https://www.vpngate.net/cn/"
+SUB_URL = "https://sub.cmliussss.net/vpngate"
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
@@ -131,6 +132,51 @@ def filter_reachable(
     return ok
 
 
+def fetch_sub_records(url: str) -> list[dict]:
+    """抓取第三方订阅源，解析每行 sstp:// 链接。"""
+    text = fetch(url)
+    records = []
+    for line in text.splitlines():
+        line = line.strip()
+        if not line.startswith("sstp://"):
+            continue
+        m = re.match(r"sstp://([^@/]+)@([^/]+)$", line)
+        if not m:
+            continue
+        cred, host = m.group(1), m.group(2)
+        user, _, passwd = cred.partition(":")
+        hostname, _, port_s = host.rpartition(":")
+        if not hostname or not port_s.isdigit():
+            hostname, port = host, SSTP_PORT
+        else:
+            port = int(port_s)
+        records.append(
+            {
+                "sstp": f"sstp://{user}:{passwd}@{hostname}:{port}",
+                "hostname": hostname,
+                "ip": "",
+                "port": port,
+                "username": user,
+                "password": passwd,
+                "country": "",
+                "ping_ms": 0,
+                "speed_mbps": 0,
+                "source": url,
+            }
+        )
+    return records
+
+
+def merge_records(*groups: list[dict]) -> list[dict]:
+    merged: dict[tuple[str, int], dict] = {}
+    for group in groups:
+        for r in group:
+            key = (r["hostname"], r["port"])
+            if key not in merged:
+                merged[key] = r
+    return list(merged.values())
+
+
 def main() -> int:
     print(f"[*] Fetching {PAGE_URL}", flush=True)
     html = fetch(PAGE_URL)
@@ -138,7 +184,19 @@ def main() -> int:
     print(f"[*] Servers on page: {len(servers)}", flush=True)
 
     records = build_records(servers)
-    print(f"[*] SSTP servers: {len(records)}", flush=True)
+    for r in records:
+        r["source"] = PAGE_URL
+    print(f"[*] SSTP servers (page): {len(records)}", flush=True)
+
+    try:
+        sub_records = fetch_sub_records(SUB_URL)
+        print(f"[*] SSTP servers (sub): {len(sub_records)}", flush=True)
+    except Exception as exc:
+        print(f"[!] Sub source unavailable, skipped: {exc}", file=sys.stderr)
+        sub_records = []
+
+    records = merge_records(records, sub_records)
+    print(f"[*] Merged after dedup: {len(records)}", flush=True)
 
     records = filter_reachable(records)
     print(f"[*] Reachable after TCP check: {len(records)}", flush=True)
@@ -149,6 +207,8 @@ def main() -> int:
         f.write("# vpngate.net SSTP 服务器列表\n")
         f.write(f"# 更新时间: {now}\n")
         f.write(f"# 账号: {SSTP_USER}  密码: {SSTP_PASS}\n")
+        f.write(f"# 数据源: {PAGE_URL}\n")
+        f.write(f"# 数据源: {SUB_URL}\n")
         f.write("# 已通过 TCP 连通性验证，仅保留端口可达的服务器\n")
         f.write("# 格式: sstp://账号:密码@主机:端口\n")
         f.write("#\n")
@@ -158,7 +218,7 @@ def main() -> int:
     with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
         json.dump(
             {
-                "source": PAGE_URL,
+                "source": [PAGE_URL, SUB_URL],
                 "updated": now,
                 "username": SSTP_USER,
                 "password": SSTP_PASS,
