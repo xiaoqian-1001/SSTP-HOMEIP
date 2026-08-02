@@ -7,7 +7,6 @@ SSTP 连接参数: hostname/IP + 端口 443，账号 vpn，密码 vpn。
 """
 
 import csv
-import io
 import json
 import sys
 import urllib.request
@@ -34,14 +33,18 @@ def fetch(url: str, timeout: int = 60) -> str:
 
 
 def parse_csv(text: str) -> list[dict]:
-    lines = [
-        line
-        for line in text.splitlines()
-        if line and not line.startswith(("#", "*"))
-    ]
-    if not lines:
+    lines = text.splitlines()
+    header_idx = None
+    for i, line in enumerate(lines):
+        stripped = line.lstrip("#* \t")
+        if stripped.startswith("HostName,"):
+            header_idx = i
+            break
+    if header_idx is None:
         return []
-    return list(csv.DictReader(io.StringIO("\n".join(lines))))
+    header = lines[header_idx].lstrip("#* \t")
+    body = lines[header_idx + 1:]
+    return list(csv.DictReader([header] + body))
 
 
 def to_int(value, default: int = 0) -> int:
@@ -90,6 +93,10 @@ def build_records(servers: list[dict]) -> list[dict]:
 def main() -> int:
     print(f"[*] Fetching {API_URL}", flush=True)
     raw = fetch(API_URL)
+    print("[*] RAW first lines (truncated):", flush=True)
+    for ln in raw.splitlines()[:6]:
+        print("[*] |", ln[:150], flush=True)
+
     servers = parse_csv(raw)
     print(f"[*] Total servers: {len(servers)}", flush=True)
     if servers:
@@ -99,7 +106,7 @@ def main() -> int:
         for s in servers:
             states[str(s.get("State"))] = states.get(str(s.get("State")), 0) + 1
         print("[*] State distribution:", states, flush=True)
-        print("[*] Sample first row:", {k: first[k] for k in list(first.keys())[:5]}, flush=True)
+        print("[*] Sample first row:", {k: first[k] for k in list(first.keys())[:6]}, flush=True)
 
     records = build_records(servers)
     print(f"[*] Online servers (SSTP capable): {len(records)}", flush=True)
