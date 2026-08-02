@@ -1,15 +1,66 @@
 {
-  "updated": "2026-08-02 07:27:03 UTC",
+  "updated": "2026-08-02 07:31:13 UTC",
   "type": "socks5",
   "source": "https://proxydb.net/?protocol=socks5",
-  "count": 4,
+  "count": 18,
   "servers": [
+    {
+      "candidate": "103.197.188.63:1080",
+      "link": "socks5://103.197.188.63:1080",
+      "success": true,
+      "responseTime": 1461,
+      "colo": "LAX",
+      "exit_ip": "104.28.236.82",
+      "exit_country": "Indonesia",
+      "exit_countryCode": "ID",
+      "exit_asn": 13335,
+      "exit_org": "Cloudflare, Inc.",
+      "risk": {
+        "score": 0.057,
+        "percent": 5.7,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "107.151.148.153:1080",
+      "link": "socks5://107.151.148.153:1080",
+      "success": true,
+      "responseTime": 5551,
+      "colo": "LAX",
+      "exit_ip": "107.151.148.153",
+      "exit_country": "United States",
+      "exit_countryCode": "US",
+      "exit_asn": 21859,
+      "exit_org": "Zenlayer Inc",
+      "risk": {
+        "score": 0.3562,
+        "percent": 35.62,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "119.28.13.138:1080",
+      "link": "socks5://119.28.13.138:1080",
+      "success": true,
+      "responseTime": 1575,
+      "colo": "LAX",
+      "exit_ip": "119.28.13.138",
+      "exit_country": "Hong Kong",
+      "exit_countryCode": "HK",
+      "exit_asn": 132203,
+      "exit_org": "Shenzhen Tencent Computer Systems Company Limited",
+      "risk": {
+        "score": 0.3767,
+        "percent": 37.67,
+        "level": "high"
+      }
+    },
     {
       "candidate": "121.169.46.116:1090",
       "link": "socks5://121.169.46.116:1090",
       "success": true,
-      "responseTime": 649,
-      "colo": "HKG",
+      "responseTime": 3784,
+      "colo": "LAX",
       "exit_ip": "121.169.46.116",
       "exit_country": "South Korea",
       "exit_countryCode": "KR",
@@ -22,54 +73,241 @@
       }
     },
     {
-      "candidate": "223.25.109.146:8199",
-      "link": "socks5://223.25.109.146:8199",
+      "candidate": "123.58.219.171:10808",
+      "link": "socks5://123.58.219.171:10808",
       "success": true,
-      "responseTime": 3938,
-      "colo": "HKG",
-      "exit_ip": "223.25.109.146",
-      "exit_country": "Indonesia",
-      "exit_countryCode": "ID",
-      "exit_asn": 149718,
-      "exit_org": "PT. SATUNOL DIGITAL TEKNOLOGI",
+      "responseTime": 1153,
+      "colo": "LAX",
+      "exit_ip": "123.58.219.171",
+      "exit_country": "Hong Kong",
+      "exit_countryCode": "HK",
+      "exit_asn": 135377,
+      "exit_org": "UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED",
       "risk": {
-        "score": 0.4515,
-        "percent": 45.15,
+        "score": 0.4432,
+        "percent": 44.32,
         "level": "high"
       }
     },
     {
-      "candidate": "223.25.110.37:8199",
-      "link": "socks5://223.25.110.37:8199",
+      "candidate": "124.156.185.140:1080",
+      "link": "socks5://124.156.185.140:1080",
       "success": true,
-      "responseTime": 5653,
-      "colo": "HKG",
-      "exit_ip": "223.25.110.37",
-      "exit_country": "Indonesia",
-      "exit_countryCode": "ID",
-      "exit_asn": 136873,
-      "exit_org": "PT. MEGA ARTHA LINTAS DATA",
+      "responseTime": 3844,
+      "colo": "LAX",
+      "exit_ip": "124.156.185.140",
+      "exit_country": "Hong Kong",
+      "exit_countryCode": "HK",
+      "exit_asn": 132203,
+      "exit_org": "Shenzhen Tencent Computer Systems Company Limited",
       "risk": {
-        "score": 0.5383,
-        "percent": 53.83,
+        "score": 0.3845,
+        "percent": 38.45,
         "level": "high"
       }
     },
     {
-      "candidate": "37.18.73.60:5566",
-      "link": "socks5://37.18.73.60:5566",
+      "candidate": "140.245.99.105:7890",
+      "link": "socks5://140.245.99.105:7890",
       "success": true,
-      "responseTime": 5578,
-      "colo": "HKG",
-      "exit_ip": "192.42.116.57",
+      "responseTime": 5253,
+      "colo": "LAX",
+      "exit_ip": "140.245.99.105",
+      "exit_country": "Singapore",
+      "exit_countryCode": "SG",
+      "exit_asn": 31898,
+      "exit_org": "Oracle Corporation",
+      "risk": {
+        "score": 0.3518,
+        "percent": 35.17,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "144.24.111.128:1088",
+      "link": "socks5://144.24.111.128:1088",
+      "success": true,
+      "responseTime": 1712,
+      "colo": "LAX",
+      "exit_ip": "144.24.111.128",
+      "exit_country": "India",
+      "exit_countryCode": "IN",
+      "exit_asn": 31898,
+      "exit_org": "Oracle Corporation",
+      "risk": {
+        "score": 0.348,
+        "percent": 34.8,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "149.62.186.244:1080",
+      "link": "socks5://149.62.186.244:1080",
+      "success": true,
+      "responseTime": 2045,
+      "colo": "LAX",
+      "exit_ip": "149.62.186.244",
+      "exit_country": "Italy",
+      "exit_countryCode": "IT",
+      "exit_asn": 47242,
+      "exit_org": "Host SpA",
+      "risk": {
+        "score": 0.34,
+        "percent": 34.0,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "159.195.49.27:1080",
+      "link": "socks5://159.195.49.27:1080",
+      "success": true,
+      "responseTime": 4212,
+      "colo": "LAX",
+      "exit_ip": "159.195.49.27",
+      "exit_country": "Germany",
+      "exit_countryCode": "DE",
+      "exit_asn": 197540,
+      "exit_org": "netcup GmbH",
+      "risk": {
+        "score": 0.4672,
+        "percent": 46.73,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "159.195.61.240:1080",
+      "link": "socks5://159.195.61.240:1080",
+      "success": true,
+      "responseTime": 5362,
+      "colo": "LAX",
+      "exit_ip": "23.129.64.166",
+      "exit_country": "United States",
+      "exit_countryCode": "US",
+      "exit_asn": 396507,
+      "exit_org": "Emerald Onion",
+      "risk": {
+        "score": 3.1355,
+        "percent": 313.55,
+        "level": "critical"
+      }
+    },
+    {
+      "candidate": "171.25.158.95:1080",
+      "link": "socks5://171.25.158.95:1080",
+      "success": true,
+      "responseTime": 1571,
+      "colo": "LAX",
+      "exit_ip": "171.25.158.95",
+      "exit_country": "Sweden",
+      "exit_countryCode": "SE",
+      "exit_asn": 35100,
+      "exit_org": "Patrik Lagerman",
+      "risk": {
+        "score": 0.3782,
+        "percent": 37.82,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "185.185.80.58:1088",
+      "link": "socks5://185.185.80.58:1088",
+      "success": true,
+      "responseTime": 2654,
+      "colo": "LAX",
+      "exit_ip": "185.185.80.58",
+      "exit_country": "France",
+      "exit_countryCode": "FR",
+      "exit_asn": 51167,
+      "exit_org": "Contabo GmbH",
+      "risk": {
+        "score": 0.5525,
+        "percent": 55.25,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "193.25.215.182:22222",
+      "link": "socks5://193.25.215.182:22222",
+      "success": true,
+      "responseTime": 724,
+      "colo": "LAX",
+      "exit_ip": "193.25.215.182",
+      "exit_country": "United States",
+      "exit_countryCode": "US",
+      "exit_asn": 397966,
+      "exit_org": "ReadyDedis, LLC",
+      "risk": {
+        "score": 0.5483,
+        "percent": 54.83,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "212.58.132.5:1080",
+      "link": "socks5://212.58.132.5:1080",
+      "success": true,
+      "responseTime": 1827,
+      "colo": "LAX",
+      "exit_ip": "212.58.132.5",
+      "exit_country": "United Kingdom",
+      "exit_countryCode": "GB",
+      "exit_asn": 8757,
+      "exit_org": "NSFOCUS, Inc.",
+      "risk": {
+        "score": 0.3067,
+        "percent": 30.67,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "5.255.117.127:1080",
+      "link": "socks5://5.255.117.127:1080",
+      "success": true,
+      "responseTime": 1125,
+      "colo": "LAX",
+      "exit_ip": "5.255.117.127",
       "exit_country": "The Netherlands",
       "exit_countryCode": "NL",
-      "exit_asn": 215125,
-      "exit_org": "Church of Cyberology",
+      "exit_asn": 60404,
+      "exit_org": "The Infrastructure Group B.V.",
       "risk": {
-        "score": 5.45,
-        "percent": 545.0,
-        "level": "critical"
+        "score": 0.7392,
+        "percent": 73.92,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "5.255.123.162:1080",
+      "link": "socks5://5.255.123.162:1080",
+      "success": true,
+      "responseTime": 2184,
+      "colo": "LAX",
+      "exit_ip": "5.255.123.162",
+      "exit_country": "The Netherlands",
+      "exit_countryCode": "NL",
+      "exit_asn": 60404,
+      "exit_org": "The Infrastructure Group B.V.",
+      "risk": {
+        "score": 0.8173,
+        "percent": 81.73,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "92.118.234.124:1080",
+      "link": "socks5://92.118.234.124:1080",
+      "success": true,
+      "responseTime": 9574,
+      "colo": "LAX",
+      "exit_ip": "92.118.234.124",
+      "exit_country": "Finland",
+      "exit_countryCode": "FI",
+      "exit_asn": 209847,
+      "exit_org": "WorkTitans B.V.",
+      "risk": {
+        "score": 0.4118,
+        "percent": 41.17,
+        "level": "high"
       }
     }
   ]
