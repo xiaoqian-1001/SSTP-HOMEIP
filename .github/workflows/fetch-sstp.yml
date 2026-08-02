@@ -1,9 +1,6 @@
 name: Fetch vpngate SSTP Servers
 
 on:
-  schedule:
-    # 每 6 小时抓取一次，可自行调整 cron
-    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 permissions:
