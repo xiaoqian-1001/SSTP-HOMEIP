@@ -1,7 +1,161 @@
 {
-  "updated": "2026-08-02 07:27:56 UTC",
+  "updated": "2026-08-02 07:31:38 UTC",
   "type": "http",
   "source": "https://proxydb.net/?protocol=http",
-  "count": 0,
-  "servers": []
+  "count": 9,
+  "servers": [
+    {
+      "candidate": "101.251.204.174:8080",
+      "link": "http://101.251.204.174:8080",
+      "success": true,
+      "responseTime": 7755,
+      "colo": "LAX",
+      "exit_ip": "101.251.204.174",
+      "exit_country": "China",
+      "exit_countryCode": "CN",
+      "exit_asn": 4808,
+      "exit_org": "China Unicom Beijing Province Network",
+      "risk": {
+        "score": 0.3082,
+        "percent": 30.82,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "128.140.113.110:3128",
+      "link": "http://128.140.113.110:3128",
+      "success": true,
+      "responseTime": 4211,
+      "colo": "LAX",
+      "exit_ip": "128.140.113.110",
+      "exit_country": "Germany",
+      "exit_countryCode": "DE",
+      "exit_asn": 24940,
+      "exit_org": "Hetzner Online GmbH",
+      "risk": {
+        "score": 0.3533,
+        "percent": 35.33,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "128.140.113.110:8080",
+      "link": "http://128.140.113.110:8080",
+      "success": true,
+      "responseTime": 3181,
+      "colo": "LAX",
+      "exit_ip": "128.140.113.110",
+      "exit_country": "Germany",
+      "exit_countryCode": "DE",
+      "exit_asn": 24940,
+      "exit_org": "Hetzner Online GmbH",
+      "risk": {
+        "score": 0.3533,
+        "percent": 35.33,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "39.105.27.30:3128",
+      "link": "http://39.105.27.30:3128",
+      "success": true,
+      "responseTime": 6200,
+      "colo": "LAX",
+      "exit_ip": "39.105.27.30",
+      "exit_country": "China",
+      "exit_countryCode": "CN",
+      "exit_asn": 37963,
+      "exit_org": "Hangzhou Alibaba Advertising Co.,Ltd.",
+      "risk": {
+        "score": 0.325,
+        "percent": 32.5,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "45.186.6.104:3128",
+      "link": "http://45.186.6.104:3128",
+      "success": true,
+      "responseTime": 1050,
+      "colo": "LAX",
+      "exit_ip": "45.186.6.104",
+      "exit_country": "Ecuador",
+      "exit_countryCode": "EC",
+      "exit_asn": 269806,
+      "exit_org": "PEREZ TITO JULIO CESAR(FASTNETT)",
+      "risk": {
+        "score": 0.305,
+        "percent": 30.5,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "47.91.65.23:3128",
+      "link": "http://47.91.65.23:3128",
+      "success": true,
+      "responseTime": 1459,
+      "colo": "LAX",
+      "exit_ip": "47.91.65.23",
+      "exit_country": "Germany",
+      "exit_countryCode": "DE",
+      "exit_asn": 45102,
+      "exit_org": "Alibaba (US) Technology Co., Ltd.",
+      "risk": {
+        "score": 0.358,
+        "percent": 35.8,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "8.209.255.13:3128",
+      "link": "http://8.209.255.13:3128",
+      "success": true,
+      "responseTime": 1313,
+      "colo": "LAX",
+      "exit_ip": "8.209.255.13",
+      "exit_country": "Japan",
+      "exit_countryCode": "JP",
+      "exit_asn": 45102,
+      "exit_org": "Alibaba (US) Technology Co., Ltd.",
+      "risk": {
+        "score": 0.3712,
+        "percent": 37.12,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "8.213.151.128:3128",
+      "link": "http://8.213.151.128:3128",
+      "success": true,
+      "responseTime": 1005,
+      "colo": "LAX",
+      "exit_ip": "8.213.151.128",
+      "exit_country": "South Korea",
+      "exit_countryCode": "KR",
+      "exit_asn": 45102,
+      "exit_org": "Alibaba (US) Technology Co., Ltd.",
+      "risk": {
+        "score": 0.347,
+        "percent": 34.7,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "8.219.97.248:80",
+      "link": "http://8.219.97.248:80",
+      "success": true,
+      "responseTime": 2123,
+      "colo": "LAX",
+      "exit_ip": "8.219.64.236",
+      "exit_country": "Singapore",
+      "exit_countryCode": "SG",
+      "exit_asn": 45102,
+      "exit_org": "Alibaba (US) Technology Co., Ltd.",
+      "risk": {
+        "score": 0.3305,
+        "percent": 33.05,
+        "level": "high"
+      }
+    }
+  ]
 }
