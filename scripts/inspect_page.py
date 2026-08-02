@@ -20,25 +20,18 @@ def main() -> int:
 
     rows = re.findall(r"<tr[^>]*>.*?</tr>", html, re.S)
     print("table rows:", len(rows), flush=True)
-    for r in rows[:3]:
-        cells = re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", r, re.S)
-        cells = [re.sub(r"<[^>]+>", "", c).strip()[:60] for c in cells]
-        print(cells, flush=True)
 
-    print("--- header row full:", flush=True)
-    for r in rows[:8]:
-        if "vg_table_header" in r:
-            cells = re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", r, re.S)
-            clean = [re.sub(r"<[^>]+>", " ", c).replace("\r", " ").replace("\n", " ").strip() for c in cells]
-            print(clean, flush=True)
-
-    print("--- first server row full html:", flush=True)
+    print("--- all server rows SSTP cell raw html:", flush=True)
     for r in rows:
-        if "vg_table_row" in r and "public-vpn" in r:
-            print(r[:3000], flush=True)
-            break
-
-    print("--- lines mentioning sstp:", flush=True)
+        if "vg_table_row" in r and ("public-vpn" in r or "opengw.net" in r):
+            cells = re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", r, re.S)
+            for c in cells:
+                if "SSTP" in c or "sstp" in c.lower():
+                    clean = re.sub(r"<[^>]+>", "|", c)
+                    clean = re.sub(r"\|+", " | ", clean)
+                    clean = re.sub(r"\s+", " ", clean).strip()
+                    print(clean[:200], flush=True)
+                    break
     count = 0
     for ln in html.splitlines():
         if "sstp" in ln.lower():

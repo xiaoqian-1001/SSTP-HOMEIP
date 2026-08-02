@@ -21,6 +21,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Inspect vpngate page structure
+        run: python scripts/inspect_page.py
+
       - name: Fetch and generate SSTP server list
         run: python scripts/fetch_sstp.py
 
