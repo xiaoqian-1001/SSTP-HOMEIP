@@ -61,21 +61,30 @@ def to_float(value, default: float = 0.0) -> float:
         return default
 
 
+def split_host_port(hostname: str, default_port: int) -> tuple[str, int]:
+    if ":" in hostname:
+        host, _, port = hostname.rpartition(":")
+        if host and port.isdigit():
+            return host, int(port)
+    return hostname, default_port
+
+
 def build_records(servers: list[dict]) -> list[dict]:
     records = []
     for s in servers:
         hostname = (s.get("HostName") or "").strip()
-        ip = (s.get("IP") or "").strip()
-        if not (hostname or ip):
+        if not hostname:
             continue
-        host = hostname or ip
+        if "." not in hostname:
+            hostname = hostname + ".opengw.net"
+        host, port = split_host_port(hostname, SSTP_PORT)
         speed_bps = to_float(s.get("Speed"))
         records.append(
             {
-                "sstp": f"sstp://{host}:{SSTP_PORT}",
-                "hostname": hostname,
-                "ip": ip,
-                "port": SSTP_PORT,
+                "sstp": f"sstp://{SSTP_USER}:{SSTP_PASS}@{host}:{port}",
+                "hostname": host,
+                "ip": (s.get("IP") or "").strip(),
+                "port": port,
                 "username": SSTP_USER,
                 "password": SSTP_PASS,
                 "country": (s.get("CountryLong") or "").strip(),
@@ -104,19 +113,11 @@ def main() -> int:
     with open(OUTPUT_TXT, "w", encoding="utf-8") as f:
         f.write("# vpngate.net SSTP 服务器列表\n")
         f.write(f"# 更新时间: {now}\n")
-        f.write(f"# 账号: {SSTP_USER}  密码: {SSTP_PASS}  端口: {SSTP_PORT}\n")
-        f.write("# 格式: sstp://主机:端口 | 国家 | 评分 | 延迟ms | 速度Mbps\n")
+        f.write(f"# 账号: {SSTP_USER}  密码: {SSTP_PASS}\n")
+        f.write("# 格式: sstp://账号:密码@主机:端口\n")
         f.write("#\n")
         for r in records:
-            f.write(
-                "{sstp} | {country} | score {score} | ping {ping}ms | {speed} Mbps\n".format(
-                    sstp=r["sstp"],
-                    country=r["country"],
-                    score=r["score"],
-                    ping=r["ping_ms"],
-                    speed=r["speed_mbps"],
-                )
-            )
+            f.write(r["sstp"] + "\n")
 
     with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
         json.dump(
