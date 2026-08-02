@@ -1,22 +1,21 @@
 #!/usr/bin/env python3
-"""抓取 vpngate.net 的服务器列表并生成 SSTP 服务器配置文件。
+"""抓取 vpngate.net 网站首页的服务器列表并生成 SSTP 服务器配置文件。
 
-数据来源: https://www.vpngate.net/api/iphone/  （与 vpngate.net 首页列表同源）
-vpngate 服务器均基于 SoftEther VPN Server，原生支持 SSTP 协议。
-SSTP 连接参数: hostname/IP + 端口 443，账号 vpn，密码 vpn。
+数据来源: https://www.vpngate.net/cn/  （网站服务器列表页面）
+从每个服务器行的 MS-SSTP 列提取官方标注的 SSTP 主机名，
+生成格式: sstp://vpn:vpn@主机名:端口（默认端口 443）。
 """
 
-import csv
 import json
+import re
 import sys
 import urllib.request
 from datetime import datetime, timezone
 
-API_URL = "https://www.vpngate.net/api/iphone/"
+PAGE_URL = "https://www.vpngate.net/cn/"
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36 "
-    "vpngate-sstp-fetcher/1.0"
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
 )
 SSTP_USER = "vpn"
 SSTP_PASS = "vpn"
@@ -32,33 +31,48 @@ def fetch(url: str, timeout: int = 60) -> str:
         return resp.read().decode("utf-8", errors="replace")
 
 
-def parse_csv(text: str) -> list[dict]:
-    lines = text.splitlines()
-    header_idx = None
-    for i, line in enumerate(lines):
-        stripped = line.lstrip("#* \t")
-        if stripped.startswith("HostName,"):
-            header_idx = i
-            break
-    if header_idx is None:
-        return []
-    header = lines[header_idx].lstrip("#* \t")
-    body = lines[header_idx + 1:]
-    return list(csv.DictReader([header] + body))
+def parse_servers(html: str) -> list[dict]:
+    servers = []
+    for row in re.findall(r"<tr[^>]*>.*?</tr>", html, re.S):
+        if "vg_table_row" not in row or "public-vpn" not in row:
+            continue
+        s: dict = {}
 
+        m = re.search(
+            r"<b><span style='font-size: 9pt;'>([^<]+)</span></b>\s*<br>\s*"
+            r"<span style='font-size: 10pt;'>([^<]+)</span>",
+            row,
+            re.S,
+        )
+        if m:
+            s["HostName"] = m.group(1).strip()
+            s["IP"] = m.group(2).strip()
 
-def to_int(value, default: int = 0) -> int:
-    try:
-        return int(float(value))
-    except (TypeError, ValueError):
-        return default
+        m = re.search(
+            r"SSTP 主机名.*?<span[^>]*>\s*([^<]+?)\s*</span>", row, re.S
+        )
+        if m:
+            s["SSTP_HostName"] = m.group(1).strip()
 
+        m = re.search(
+            r"<td class='vg_table_row_\d' style='text-align: center;'>.*?<br>\s*(.*?)\s*</td>",
+            row,
+            re.S,
+        )
+        if m:
+            s["Country"] = m.group(1).strip()
 
-def to_float(value, default: float = 0.0) -> float:
-    try:
-        return float(value)
-    except (TypeError, ValueError):
-        return default
+        m = re.search(r"<b><span style='font-size: 10pt;'>([\d.]+) Mbps</span>", row)
+        if m:
+            s["Speed"] = float(m.group(1))
+
+        m = re.search(r"Ping:\s*<b>([\d.]+) ms</b>", row)
+        if m:
+            s["Ping"] = float(m.group(1))
+
+        if s.get("SSTP_HostName") or s.get("HostName"):
+            servers.append(s)
+    return servers
 
 
 def split_host_port(hostname: str, default_port: int) -> tuple[str, int]:
@@ -72,13 +86,10 @@ def split_host_port(hostname: str, default_port: int) -> tuple[str, int]:
 def build_records(servers: list[dict]) -> list[dict]:
     records = []
     for s in servers:
-        hostname = (s.get("HostName") or "").strip()
-        if not hostname:
+        host = (s.get("SSTP_HostName") or s.get("HostName") or "").strip()
+        if not host:
             continue
-        if "." not in hostname:
-            hostname = hostname + ".opengw.net"
-        host, port = split_host_port(hostname, SSTP_PORT)
-        speed_bps = to_float(s.get("Speed"))
+        host, port = split_host_port(host, SSTP_PORT)
         records.append(
             {
                 "sstp": f"sstp://{SSTP_USER}:{SSTP_PASS}@{host}:{port}",
@@ -87,23 +98,20 @@ def build_records(servers: list[dict]) -> list[dict]:
                 "port": port,
                 "username": SSTP_USER,
                 "password": SSTP_PASS,
-                "country": (s.get("CountryLong") or "").strip(),
-                "country_short": (s.get("CountryShort") or "").strip(),
-                "score": to_int(s.get("Score")),
-                "ping_ms": to_int(s.get("Ping")),
-                "speed_mbps": round(speed_bps / 125000, 1),
-                "sessions": to_int(s.get("NumVpnSessions")),
+                "country": (s.get("Country") or "").strip(),
+                "ping_ms": int(s.get("Ping", 0)),
+                "speed_mbps": round(s.get("Speed", 0), 1),
             }
         )
-    records.sort(key=lambda r: (-r["score"], r["ping_ms"]))
+    records.sort(key=lambda r: (-r["speed_mbps"], r["ping_ms"]))
     return records
 
 
 def main() -> int:
-    print(f"[*] Fetching {API_URL}", flush=True)
-    raw = fetch(API_URL)
-    servers = parse_csv(raw)
-    print(f"[*] Total servers: {len(servers)}", flush=True)
+    print(f"[*] Fetching {PAGE_URL}", flush=True)
+    html = fetch(PAGE_URL)
+    servers = parse_servers(html)
+    print(f"[*] Servers on page: {len(servers)}", flush=True)
 
     records = build_records(servers)
     print(f"[*] SSTP servers: {len(records)}", flush=True)
@@ -122,7 +130,7 @@ def main() -> int:
     with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
         json.dump(
             {
-                "source": API_URL,
+                "source": PAGE_URL,
                 "updated": now,
                 "username": SSTP_USER,
                 "password": SSTP_PASS,
