@@ -8,8 +8,10 @@
 
 import json
 import re
+import socket
 import sys
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 
 PAGE_URL = "https://www.vpngate.net/cn/"
@@ -107,6 +109,28 @@ def build_records(servers: list[dict]) -> list[dict]:
     return records
 
 
+def check_reachable(host: str, port: int, timeout: int = 4) -> bool:
+    try:
+        with socket.create_connection((host, port), timeout=timeout):
+            return True
+    except OSError:
+        return False
+
+
+def filter_reachable(
+    records: list[dict], max_workers: int = 20, timeout: int = 4
+) -> list[dict]:
+    if not records:
+        return []
+    with ThreadPoolExecutor(max_workers=max_workers) as ex:
+        futures = {
+            ex.submit(check_reachable, r["hostname"], r["port"], timeout): r
+            for r in records
+        }
+        ok = [futures[f] for f in futures if f.result()]
+    return ok
+
+
 def main() -> int:
     print(f"[*] Fetching {PAGE_URL}", flush=True)
     html = fetch(PAGE_URL)
@@ -116,12 +140,16 @@ def main() -> int:
     records = build_records(servers)
     print(f"[*] SSTP servers: {len(records)}", flush=True)
 
+    records = filter_reachable(records)
+    print(f"[*] Reachable after TCP check: {len(records)}", flush=True)
+
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
 
     with open(OUTPUT_TXT, "w", encoding="utf-8") as f:
         f.write("# vpngate.net SSTP 服务器列表\n")
         f.write(f"# 更新时间: {now}\n")
         f.write(f"# 账号: {SSTP_USER}  密码: {SSTP_PASS}\n")
+        f.write("# 已通过 TCP 连通性验证，仅保留端口可达的服务器\n")
         f.write("# 格式: sstp://账号:密码@主机:端口\n")
         f.write("#\n")
         for r in records:
