@@ -248,6 +248,8 @@ def main() -> int:
     print(f"[*] Reachable after TCP pre-screen: {len(records)}", flush=True)
 
     records = check_via_api(records)
+    records = [r for r in records if (r.get("risk") or {}).get("level") in ("verylow", "low")]
+    print(f"[*] After risk filter (verylow/low): {len(records)}", flush=True)
     records.sort(key=lambda r: (r.get("risk") or {}).get("percent") or 0)
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
@@ -259,6 +261,7 @@ def main() -> int:
         f.write(f"# 数据源: {PAGE_URL}\n")
         f.write(f"# 数据源: {SUB_URL}\n")
         f.write(f"# 已通过 {proxy_check.CHECK_API} 验证 SSTP 连通性、测速与风险评级\n")
+        f.write("# 仅保留风险评级为 纯净/极度纯净 的节点\n")
         f.write("# 按风险评级升序排列（低风险在前）\n")
         f.write("# 格式: sstp://账号:密码@主机:端口\n")
         f.write("#\n")
