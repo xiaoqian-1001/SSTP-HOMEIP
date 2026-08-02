@@ -92,6 +92,14 @@ def main() -> int:
     raw = fetch(API_URL)
     servers = parse_csv(raw)
     print(f"[*] Total servers: {len(servers)}", flush=True)
+    if servers:
+        first = servers[0]
+        print("[*] Columns:", list(first.keys()), flush=True)
+        states = {}
+        for s in servers:
+            states[str(s.get("State"))] = states.get(str(s.get("State")), 0) + 1
+        print("[*] State distribution:", states, flush=True)
+        print("[*] Sample first row:", {k: first[k] for k in list(first.keys())[:5]}, flush=True)
 
     records = build_records(servers)
     print(f"[*] Online servers (SSTP capable): {len(records)}", flush=True)
