@@ -34,7 +34,7 @@ def fetch(url: str, timeout: int = 60) -> str:
 def parse_servers(html: str) -> list[dict]:
     servers = []
     for row in re.findall(r"<tr[^>]*>.*?</tr>", html, re.S):
-        if "vg_table_row" not in row or "public-vpn" not in row:
+        if "vg_table_row" not in row or "opengw.net" not in row:
             continue
         s: dict = {}
 
