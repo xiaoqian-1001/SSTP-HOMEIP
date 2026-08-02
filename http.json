@@ -1,0 +1,62 @@
+{
+  "updated": "2026-08-02 06:27:43 UTC",
+  "type": "http",
+  "source": [
+    "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt",
+    "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-http.txt"
+  ],
+  "count": 3,
+  "servers": [
+    {
+      "candidate": "47.238.128.246:85",
+      "link": "http://47.238.128.246:85",
+      "success": true,
+      "responseTime": 5021,
+      "colo": "HKG",
+      "exit_ip": "47.238.128.246",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "asn": 304215,
+      "org": "DMUAPF Company, LLC",
+      "risk": {
+        "score": 0.1568,
+        "percent": 15.68,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "47.74.46.81:8080",
+      "link": "http://47.74.46.81:8080",
+      "success": true,
+      "responseTime": 5171,
+      "colo": "HKG",
+      "exit_ip": "47.74.46.81",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "asn": 304215,
+      "org": "DMUAPF Company, LLC",
+      "risk": {
+        "score": 0.1568,
+        "percent": 15.68,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "47.89.159.212:9098",
+      "link": "http://47.89.159.212:9098",
+      "success": true,
+      "responseTime": 5694,
+      "colo": "HKG",
+      "exit_ip": "47.89.159.212",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "asn": 304215,
+      "org": "DMUAPF Company, LLC",
+      "risk": {
+        "score": 0.1568,
+        "percent": 15.68,
+        "level": "elevated"
+      }
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "updated": "2026-08-02 06:26:42 UTC",
+  "type": "socks5",
+  "source": [
+    "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks5.txt",
+    "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-socks5.txt"
+  ],
+  "count": 7,
+  "servers": [
+    {
+      "candidate": "184.181.217.213:4145",
+      "link": "socks5://184.181.217.213:4145",
+      "success": true,
+      "responseTime": 1839,
+      "colo": "HKG",
+      "exit_ip": "184.181.217.213",
+      "country": "United States",
+      "countryCode": "US",
+      "asn": 22773,
+      "org": "Cox Communications Inc.",
+      "risk": {
+        "score": 0.3017,
+        "percent": 30.17,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "195.19.50.180:1080",
+      "link": "socks5://195.19.50.180:1080",
+      "success": true,
+      "responseTime": 2552,
+      "colo": "HKG",
+      "exit_ip": "195.19.50.180",
+      "country": "Russia",
+      "countryCode": "RU",
+      "asn": 57529,
+      "org": "ZAO GTNT",
+      "risk": {
+        "score": 0.368,
+        "percent": 36.8,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "47.238.128.246:85",
+      "link": "socks5://47.238.128.246:85",
+      "success": true,
+      "responseTime": 7031,
+      "colo": "HKG",
+      "exit_ip": "47.238.128.246",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "asn": 304215,
+      "org": "DMUAPF Company, LLC",
+      "risk": {
+        "score": 0.1568,
+        "percent": 15.68,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "47.74.46.81:8080",
+      "link": "socks5://47.74.46.81:8080",
+      "success": true,
+      "responseTime": 7178,
+      "colo": "HKG",
+      "exit_ip": "47.74.46.81",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "asn": 304215,
+      "org": "DMUAPF Company, LLC",
+      "risk": {
+        "score": 0.1568,
+        "percent": 15.68,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "47.89.159.212:9098",
+      "link": "socks5://47.89.159.212:9098",
+      "success": true,
+      "responseTime": 7662,
+      "colo": "HKG",
+      "exit_ip": "47.89.159.212",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "asn": 304215,
+      "org": "DMUAPF Company, LLC",
+      "risk": {
+        "score": 0.1568,
+        "percent": 15.68,
+        "level": "elevated"
+      }
+    },
+    {
+      "candidate": "5.255.117.127:1080",
+      "link": "socks5://5.255.117.127:1080",
+      "success": true,
+      "responseTime": 1913,
+      "colo": "HKG",
+      "exit_ip": "5.255.117.127",
+      "country": "The Netherlands",
+      "countryCode": "NL",
+      "asn": 60404,
+      "org": "The Infrastructure Group B.V.",
+      "risk": {
+        "score": 0.7392,
+        "percent": 73.92,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "77.110.103.146:1080",
+      "link": "socks5://77.110.103.146:1080",
+      "success": true,
+      "responseTime": 1280,
+      "colo": "HKG",
+      "exit_ip": "77.110.103.146",
+      "country": "The Netherlands",
+      "countryCode": "NL",
+      "asn": 210644,
+      "org": "AEZA GROUP LLC",
+      "risk": {
+        "score": 0.6327,
+        "percent": 63.27,
+        "level": "high"
+      }
+    }
+  ]
+}
