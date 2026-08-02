@@ -1,0 +1,76 @@
+{
+  "updated": "2026-08-02 07:27:03 UTC",
+  "type": "socks5",
+  "source": "https://proxydb.net/?protocol=socks5",
+  "count": 4,
+  "servers": [
+    {
+      "candidate": "121.169.46.116:1090",
+      "link": "socks5://121.169.46.116:1090",
+      "success": true,
+      "responseTime": 649,
+      "colo": "HKG",
+      "exit_ip": "121.169.46.116",
+      "exit_country": "South Korea",
+      "exit_countryCode": "KR",
+      "exit_asn": 4766,
+      "exit_org": "Korea Telecom",
+      "risk": {
+        "score": 0.3057,
+        "percent": 30.57,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "223.25.109.146:8199",
+      "link": "socks5://223.25.109.146:8199",
+      "success": true,
+      "responseTime": 3938,
+      "colo": "HKG",
+      "exit_ip": "223.25.109.146",
+      "exit_country": "Indonesia",
+      "exit_countryCode": "ID",
+      "exit_asn": 149718,
+      "exit_org": "PT. SATUNOL DIGITAL TEKNOLOGI",
+      "risk": {
+        "score": 0.4515,
+        "percent": 45.15,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "223.25.110.37:8199",
+      "link": "socks5://223.25.110.37:8199",
+      "success": true,
+      "responseTime": 5653,
+      "colo": "HKG",
+      "exit_ip": "223.25.110.37",
+      "exit_country": "Indonesia",
+      "exit_countryCode": "ID",
+      "exit_asn": 136873,
+      "exit_org": "PT. MEGA ARTHA LINTAS DATA",
+      "risk": {
+        "score": 0.5383,
+        "percent": 53.83,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "37.18.73.60:5566",
+      "link": "socks5://37.18.73.60:5566",
+      "success": true,
+      "responseTime": 5578,
+      "colo": "HKG",
+      "exit_ip": "192.42.116.57",
+      "exit_country": "The Netherlands",
+      "exit_countryCode": "NL",
+      "exit_asn": 215125,
+      "exit_org": "Church of Cyberology",
+      "risk": {
+        "score": 5.45,
+        "percent": 545.0,
+        "level": "critical"
+      }
+    }
+  ]
+}

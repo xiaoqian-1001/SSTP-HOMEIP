@@ -30,19 +30,12 @@ TCP_TIMEOUT = 3
 MAX_CHECK = int(os.environ.get("PROXY_MAX_CHECK", "150"))
 
 SOURCES = {
-    "socks5": [
-        "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks5.txt",
-        "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-socks5.txt",
-    ],
-    "http": [
-        "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt",
-        "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-http.txt",
-    ],
+    "socks5": "https://proxydb.net/?protocol=socks5",
+    "http": "https://proxydb.net/?protocol=http",
+    "https": "https://proxydb.net/?protocol=https",
 }
 
-IP_PORT_RE = re.compile(r"^([0-9]{1,3}\.){3}[0-9]{1,3}:[0-9]{1,5}$")
-USERPASS_RE = re.compile(r"^[^@:\s/]+:[^@:\s/]+@([0-9]{1,3}\.){3}[0-9]{1,3}:[0-9]{1,5}$")
-
+PROXYDB_PAGES = 2
 
 def now_str() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
@@ -54,24 +47,39 @@ def fetch(url: str, timeout: int = 30) -> str:
         return resp.read().decode("utf-8", errors="replace")
 
 
-def fetch_candidates(ptype: str) -> list[str]:
+_PROXYDB_RE = re.compile(r'<a href="/([0-9.]+)/([0-9]+)#([^"]+)"[^>]*>([0-9.]+)</a>', re.I)
+
+
+def fetch_proxydb(ptype: str) -> list[str]:
+    base = SOURCES.get(ptype, "")
+    if not base:
+        return []
     seen: set[str] = set()
     out: list[str] = []
-    for url in SOURCES.get(ptype, []):
+    for page in range(PROXYDB_PAGES):
+        url = f"{base}&offset={page * 30}" if page > 0 else base
         try:
-            text = fetch(url)
+            html = fetch(url, timeout=30)
         except Exception as exc:
-            print(f"[!] {ptype} source failed {url}: {exc}", file=sys.stderr)
+            print(f"[!] proxydb {ptype} page {page} failed: {exc}", file=sys.stderr)
             continue
-        for line in text.splitlines():
-            line = line.strip()
-            if IP_PORT_RE.match(line) or USERPASS_RE.match(line):
-                key = line.rsplit("@", 1)[-1]
-                if key not in seen:
-                    seen.add(key)
-                    out.append(line)
-        print(f"[*] {ptype} from {url}: {len([l for l in text.splitlines() if l.strip()])} lines", flush=True)
+        for m in _PROXYDB_RE.finditer(html):
+            ip, port, ptype_found, _ = m.group(1, 2, 3, 4)
+            protocol = ptype_found.lower()
+            if protocol not in ("socks5", "http", "https"):
+                continue
+            target = f"{ip}:{port}"
+            key = target
+            if key not in seen:
+                seen.add(key)
+                out.append(target)
+        print(f"[*] proxydb {ptype} page {page}: {len([l for l in [m.group(1) + ':' + m.group(2) for m in _PROXYDB_RE.finditer(html)]])} proxies", flush=True)
+    print(f"[*] proxydb {ptype} total: {len(out)} unique", flush=True)
     return out
+
+
+def fetch_candidates(ptype: str) -> list[str]:
+    return fetch_proxydb(ptype)
 
 
 def tcp_reachable(target: str, timeout: int = TCP_TIMEOUT) -> bool:
