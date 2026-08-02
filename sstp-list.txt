@@ -1,24 +1,17 @@
 # vpngate.net SSTP 服务器列表
-# 更新时间: 2026-08-02 05:21:31 UTC
+# 更新时间: 2026-08-02 05:26:18 UTC
 # 账号: vpn  密码: vpn
 # 格式: sstp://账号:密码@主机:端口
 #
-sstp://vpn:vpn@public-vpn-147.opengw.net:443
-sstp://vpn:vpn@public-vpn-194.opengw.net:443
-sstp://vpn:vpn@public-vpn-109.opengw.net:443
-sstp://vpn:vpn@public-vpn-184.opengw.net:443
-sstp://vpn:vpn@public-vpn-242.opengw.net:443
-sstp://vpn:vpn@public-vpn-55.opengw.net:443
-sstp://vpn:vpn@public-vpn-221.opengw.net:443
+sstp://vpn:vpn@public-vpn-195.opengw.net:443
+sstp://vpn:vpn@public-vpn-118.opengw.net:443
+sstp://vpn:vpn@public-vpn-227.opengw.net:443
 sstp://vpn:vpn@public-vpn-42.opengw.net:443
-sstp://vpn:vpn@public-vpn-165.opengw.net:443
-sstp://vpn:vpn@public-vpn-152.opengw.net:443
-sstp://vpn:vpn@public-vpn-223.opengw.net:443
-sstp://vpn:vpn@public-vpn-255.opengw.net:443
+sstp://vpn:vpn@public-vpn-105.opengw.net:443
 sstp://vpn:vpn@public-vpn-235.opengw.net:443
+sstp://vpn:vpn@public-vpn-231.opengw.net:443
+sstp://vpn:vpn@public-vpn-48.opengw.net:443
 sstp://vpn:vpn@public-vpn-79.opengw.net:443
-sstp://vpn:vpn@public-vpn-213.opengw.net:443
-sstp://vpn:vpn@public-vpn-123.opengw.net:443
-sstp://vpn:vpn@public-vpn-229.opengw.net:443
-sstp://vpn:vpn@public-vpn-197.opengw.net:443
-sstp://vpn:vpn@public-vpn-156.opengw.net:443
+sstp://vpn:vpn@public-vpn-104.opengw.net:443
+sstp://vpn:vpn@public-vpn-90.opengw.net:443
+sstp://vpn:vpn@public-vpn-216.opengw.net:443

@@ -1,87 +1,43 @@
 {
   "source": "https://www.vpngate.net/cn/",
-  "updated": "2026-08-02 05:21:31 UTC",
+  "updated": "2026-08-02 05:26:18 UTC",
   "username": "vpn",
   "password": "vpn",
   "port": 443,
-  "count": 19,
+  "count": 12,
   "servers": [
     {
-      "sstp": "sstp://vpn:vpn@public-vpn-147.opengw.net:443",
-      "hostname": "public-vpn-147.opengw.net",
-      "ip": "219.100.37.119",
-      "port": 443,
-      "username": "vpn",
-      "password": "vpn",
-      "country": "Japan",
-      "ping_ms": 12,
-      "speed_mbps": 884.5
-    },
-    {
-      "sstp": "sstp://vpn:vpn@public-vpn-194.opengw.net:443",
-      "hostname": "public-vpn-194.opengw.net",
-      "ip": "219.100.37.210",
-      "port": 443,
-      "username": "vpn",
-      "password": "vpn",
-      "country": "Japan",
-      "ping_ms": 21,
-      "speed_mbps": 723.2
-    },
-    {
-      "sstp": "sstp://vpn:vpn@public-vpn-109.opengw.net:443",
-      "hostname": "public-vpn-109.opengw.net",
-      "ip": "219.100.37.86",
+      "sstp": "sstp://vpn:vpn@public-vpn-195.opengw.net:443",
+      "hostname": "public-vpn-195.opengw.net",
+      "ip": "219.100.37.195",
       "port": 443,
       "username": "vpn",
       "password": "vpn",
       "country": "Japan",
       "ping_ms": 8,
-      "speed_mbps": 649.3
+      "speed_mbps": 829.0
     },
     {
-      "sstp": "sstp://vpn:vpn@public-vpn-184.opengw.net:443",
-      "hostname": "public-vpn-184.opengw.net",
-      "ip": "219.100.37.162",
+      "sstp": "sstp://vpn:vpn@public-vpn-118.opengw.net:443",
+      "hostname": "public-vpn-118.opengw.net",
+      "ip": "219.100.37.87",
       "port": 443,
       "username": "vpn",
       "password": "vpn",
       "country": "Japan",
-      "ping_ms": 8,
-      "speed_mbps": 642.4
+      "ping_ms": 10,
+      "speed_mbps": 411.9
     },
     {
-      "sstp": "sstp://vpn:vpn@public-vpn-242.opengw.net:443",
-      "hostname": "public-vpn-242.opengw.net",
-      "ip": "219.100.37.186",
+      "sstp": "sstp://vpn:vpn@public-vpn-227.opengw.net:443",
+      "hostname": "public-vpn-227.opengw.net",
+      "ip": "219.100.37.185",
       "port": 443,
       "username": "vpn",
       "password": "vpn",
       "country": "Japan",
-      "ping_ms": 20,
-      "speed_mbps": 555.1
-    },
-    {
-      "sstp": "sstp://vpn:vpn@public-vpn-55.opengw.net:443",
-      "hostname": "public-vpn-55.opengw.net",
-      "ip": "219.100.37.20",
-      "port": 443,
-      "username": "vpn",
-      "password": "vpn",
-      "country": "Japan",
-      "ping_ms": 13,
-      "speed_mbps": 486.0
-    },
-    {
-      "sstp": "sstp://vpn:vpn@public-vpn-221.opengw.net:443",
-      "hostname": "public-vpn-221.opengw.net",
-      "ip": "219.100.37.184",
-      "port": 443,
-      "username": "vpn",
-      "password": "vpn",
-      "country": "Japan",
-      "ping_ms": 12,
-      "speed_mbps": 391.6
+      "ping_ms": 16,
+      "speed_mbps": 387.7
     },
     {
       "sstp": "sstp://vpn:vpn@public-vpn-42.opengw.net:443",
@@ -95,48 +51,15 @@
       "speed_mbps": 355.7
     },
     {
-      "sstp": "sstp://vpn:vpn@public-vpn-165.opengw.net:443",
-      "hostname": "public-vpn-165.opengw.net",
-      "ip": "219.100.37.127",
+      "sstp": "sstp://vpn:vpn@public-vpn-105.opengw.net:443",
+      "hostname": "public-vpn-105.opengw.net",
+      "ip": "219.100.37.85",
       "port": 443,
       "username": "vpn",
       "password": "vpn",
       "country": "Japan",
-      "ping_ms": 8,
-      "speed_mbps": 350.8
-    },
-    {
-      "sstp": "sstp://vpn:vpn@public-vpn-152.opengw.net:443",
-      "hostname": "public-vpn-152.opengw.net",
-      "ip": "219.100.37.96",
-      "port": 443,
-      "username": "vpn",
-      "password": "vpn",
-      "country": "Japan",
-      "ping_ms": 12,
-      "speed_mbps": 347.8
-    },
-    {
-      "sstp": "sstp://vpn:vpn@public-vpn-223.opengw.net:443",
-      "hostname": "public-vpn-223.opengw.net",
-      "ip": "219.100.37.199",
-      "port": 443,
-      "username": "vpn",
-      "password": "vpn",
-      "country": "Japan",
-      "ping_ms": 24,
-      "speed_mbps": 335.3
-    },
-    {
-      "sstp": "sstp://vpn:vpn@public-vpn-255.opengw.net:443",
-      "hostname": "public-vpn-255.opengw.net",
-      "ip": "219.100.37.224",
-      "port": 443,
-      "username": "vpn",
-      "password": "vpn",
-      "country": "Japan",
-      "ping_ms": 9,
-      "speed_mbps": 303.0
+      "ping_ms": 16,
+      "speed_mbps": 324.0
     },
     {
       "sstp": "sstp://vpn:vpn@public-vpn-235.opengw.net:443",
@@ -150,6 +73,28 @@
       "speed_mbps": 294.6
     },
     {
+      "sstp": "sstp://vpn:vpn@public-vpn-231.opengw.net:443",
+      "hostname": "public-vpn-231.opengw.net",
+      "ip": "219.100.37.188",
+      "port": 443,
+      "username": "vpn",
+      "password": "vpn",
+      "country": "Japan",
+      "ping_ms": 14,
+      "speed_mbps": 291.4
+    },
+    {
+      "sstp": "sstp://vpn:vpn@public-vpn-48.opengw.net:443",
+      "hostname": "public-vpn-48.opengw.net",
+      "ip": "219.100.37.12",
+      "port": 443,
+      "username": "vpn",
+      "password": "vpn",
+      "country": "Japan",
+      "ping_ms": 17,
+      "speed_mbps": 288.6
+    },
+    {
       "sstp": "sstp://vpn:vpn@public-vpn-79.opengw.net:443",
       "hostname": "public-vpn-79.opengw.net",
       "ip": "219.100.37.27",
@@ -161,59 +106,37 @@
       "speed_mbps": 283.7
     },
     {
-      "sstp": "sstp://vpn:vpn@public-vpn-213.opengw.net:443",
-      "hostname": "public-vpn-213.opengw.net",
-      "ip": "219.100.37.200",
+      "sstp": "sstp://vpn:vpn@public-vpn-104.opengw.net:443",
+      "hostname": "public-vpn-104.opengw.net",
+      "ip": "219.100.37.58",
       "port": 443,
       "username": "vpn",
       "password": "vpn",
       "country": "Japan",
-      "ping_ms": 16,
-      "speed_mbps": 261.8
+      "ping_ms": 11,
+      "speed_mbps": 282.8
     },
     {
-      "sstp": "sstp://vpn:vpn@public-vpn-123.opengw.net:443",
-      "hostname": "public-vpn-123.opengw.net",
-      "ip": "219.100.37.89",
+      "sstp": "sstp://vpn:vpn@public-vpn-90.opengw.net:443",
+      "hostname": "public-vpn-90.opengw.net",
+      "ip": "219.100.37.55",
       "port": 443,
       "username": "vpn",
       "password": "vpn",
       "country": "Japan",
-      "ping_ms": 18,
-      "speed_mbps": 261.1
+      "ping_ms": 11,
+      "speed_mbps": 256.6
     },
     {
-      "sstp": "sstp://vpn:vpn@public-vpn-229.opengw.net:443",
-      "hostname": "public-vpn-229.opengw.net",
-      "ip": "219.100.37.217",
+      "sstp": "sstp://vpn:vpn@public-vpn-216.opengw.net:443",
+      "hostname": "public-vpn-216.opengw.net",
+      "ip": "219.100.37.218",
       "port": 443,
       "username": "vpn",
       "password": "vpn",
       "country": "Japan",
-      "ping_ms": 12,
-      "speed_mbps": 237.7
-    },
-    {
-      "sstp": "sstp://vpn:vpn@public-vpn-197.opengw.net:443",
-      "hostname": "public-vpn-197.opengw.net",
-      "ip": "219.100.37.211",
-      "port": 443,
-      "username": "vpn",
-      "password": "vpn",
-      "country": "Japan",
-      "ping_ms": 16,
-      "speed_mbps": 229.6
-    },
-    {
-      "sstp": "sstp://vpn:vpn@public-vpn-156.opengw.net:443",
-      "hostname": "public-vpn-156.opengw.net",
-      "ip": "219.100.37.95",
-      "port": 443,
-      "username": "vpn",
-      "password": "vpn",
-      "country": "Japan",
-      "ping_ms": 29,
-      "speed_mbps": 220.6
+      "ping_ms": 8,
+      "speed_mbps": 204.3
     }
   ]
 }
