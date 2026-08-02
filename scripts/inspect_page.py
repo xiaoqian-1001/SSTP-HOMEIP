@@ -25,6 +25,19 @@ def main() -> int:
         cells = [re.sub(r"<[^>]+>", "", c).strip()[:60] for c in cells]
         print(cells, flush=True)
 
+    print("--- header row full:", flush=True)
+    for r in rows[:8]:
+        if "vg_table_header" in r:
+            cells = re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", r, re.S)
+            clean = [re.sub(r"<[^>]+>", " ", c).replace("\r", " ").replace("\n", " ").strip() for c in cells]
+            print(clean, flush=True)
+
+    print("--- first server row full html:", flush=True)
+    for r in rows:
+        if "vg_table_row" in r and "public-vpn" in r:
+            print(r[:3000], flush=True)
+            break
+
     print("--- lines mentioning sstp:", flush=True)
     count = 0
     for ln in html.splitlines():
