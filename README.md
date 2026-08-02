@@ -1,4 +1,4 @@
-# vpngate SSTP 抓取器
+# VPNGAT3 SSTP 抓取器
 
 通过 GitHub Actions 定时抓取 [vpngate.net](https://www.vpngate.net/cn/) 的公开服务器列表，生成可用于 SSTP 协议连接的服务列表。
 
