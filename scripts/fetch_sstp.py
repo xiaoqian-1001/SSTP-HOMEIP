@@ -64,13 +64,12 @@ def to_float(value, default: float = 0.0) -> float:
 def build_records(servers: list[dict]) -> list[dict]:
     records = []
     for s in servers:
-        if to_int(s.get("State")) < 1:
-            continue
         hostname = (s.get("HostName") or "").strip()
         ip = (s.get("IP") or "").strip()
         if not (hostname or ip):
             continue
         host = hostname or ip
+        speed_bps = to_float(s.get("Speed"))
         records.append(
             {
                 "sstp": f"sstp://{host}:{SSTP_PORT}",
@@ -79,37 +78,26 @@ def build_records(servers: list[dict]) -> list[dict]:
                 "port": SSTP_PORT,
                 "username": SSTP_USER,
                 "password": SSTP_PASS,
-                "country": (s.get("Country") or "").strip(),
-                "load": to_int(s.get("Load")),
-                "availability": to_float(s.get("Availability")),
-                "speed_mbps": to_int(s.get("Bandwidth")),
-                "clients": to_int(s.get("NumClients")),
+                "country": (s.get("CountryLong") or "").strip(),
+                "country_short": (s.get("CountryShort") or "").strip(),
+                "score": to_int(s.get("Score")),
+                "ping_ms": to_int(s.get("Ping")),
+                "speed_mbps": round(speed_bps / 125000, 1),
+                "sessions": to_int(s.get("NumVpnSessions")),
             }
         )
-    records.sort(key=lambda r: (-r["availability"], r["load"]))
+    records.sort(key=lambda r: (-r["score"], r["ping_ms"]))
     return records
 
 
 def main() -> int:
     print(f"[*] Fetching {API_URL}", flush=True)
     raw = fetch(API_URL)
-    print("[*] RAW first lines (truncated):", flush=True)
-    for ln in raw.splitlines()[:6]:
-        print("[*] |", ln[:150], flush=True)
-
     servers = parse_csv(raw)
     print(f"[*] Total servers: {len(servers)}", flush=True)
-    if servers:
-        first = servers[0]
-        print("[*] Columns:", list(first.keys()), flush=True)
-        states = {}
-        for s in servers:
-            states[str(s.get("State"))] = states.get(str(s.get("State")), 0) + 1
-        print("[*] State distribution:", states, flush=True)
-        print("[*] Sample first row:", {k: first[k] for k in list(first.keys())[:6]}, flush=True)
 
     records = build_records(servers)
-    print(f"[*] Online servers (SSTP capable): {len(records)}", flush=True)
+    print(f"[*] SSTP servers: {len(records)}", flush=True)
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
 
@@ -117,15 +105,15 @@ def main() -> int:
         f.write("# vpngate.net SSTP 服务器列表\n")
         f.write(f"# 更新时间: {now}\n")
         f.write(f"# 账号: {SSTP_USER}  密码: {SSTP_PASS}  端口: {SSTP_PORT}\n")
-        f.write("# 格式: sstp://主机:端口 | 国家 | 负载 | 可用性 | 速度Mbps\n")
+        f.write("# 格式: sstp://主机:端口 | 国家 | 评分 | 延迟ms | 速度Mbps\n")
         f.write("#\n")
         for r in records:
             f.write(
-                "{sstp} | {country} | load {load} | avail {availability:.1f}% | {speed} Mbps\n".format(
+                "{sstp} | {country} | score {score} | ping {ping}ms | {speed} Mbps\n".format(
                     sstp=r["sstp"],
                     country=r["country"],
-                    load=r["load"],
-                    availability=r["availability"],
+                    score=r["score"],
+                    ping=r["ping_ms"],
                     speed=r["speed_mbps"],
                 )
             )
