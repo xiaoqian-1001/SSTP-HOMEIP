@@ -7,12 +7,15 @@
 """
 
 import json
+import os
 import re
 import socket
 import sys
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
+
+import proxy_check
 
 PAGE_URL = "https://www.vpngate.net/cn/"
 SUB_URL = "https://sub.cmliussss.net/vpngate"
@@ -177,6 +180,44 @@ def merge_records(*groups: list[dict]) -> list[dict]:
     return list(merged.values())
 
 
+def check_via_api(records: list[dict], max_workers: int | None = None) -> list[dict]:
+    """通过 check.socks5.cmliussss.net 验证 SSTP 可用性、测速并计算风险评级。"""
+    if not records:
+        return []
+    max_workers = max_workers or proxy_check.CONCURRENCY
+    print(f"[*] Verifying via {proxy_check.CHECK_API} ({len(records)} targets, "
+          f"concurrency={max_workers})...", flush=True)
+
+    def do_check(r: dict) -> dict:
+        target = f"{r['username']}:{r['password']}@{r['hostname']}:{r['port']}"
+        try:
+            return proxy_check.check_api(target, "sstp")
+        except Exception as exc:
+            return {"success": False, "error": f"check request failed: {exc}"}
+
+    done = 0
+    total = len(records)
+    with ThreadPoolExecutor(max_workers=max_workers) as ex:
+        futures = {ex.submit(do_check, r): r for r in records}
+        for fut in futures:
+            r = futures[fut]
+            d = fut.result()
+            done += 1
+            r["check_ok"] = bool(d.get("success"))
+            if d.get("success"):
+                r["responseTime"] = d.get("responseTime")
+                r["colo"] = d.get("colo")
+                r.update(proxy_check.extract_exit_fields(d.get("exit")))
+                r["risk"] = proxy_check.calc_risk(d.get("exit"))
+            else:
+                r["check_error"] = (d.get("error") or "")[:120]
+            if done % 25 == 0 or done == total:
+                print(f"[*] checked {done}/{total}", flush=True)
+    ok = [r for r in records if r["check_ok"]]
+    print(f"[*] SSTP check success: {len(ok)}/{total}", flush=True)
+    return ok
+
+
 def main() -> int:
     print(f"[*] Fetching {PAGE_URL}", flush=True)
     html = fetch(PAGE_URL)
@@ -198,8 +239,16 @@ def main() -> int:
     records = merge_records(records, sub_records)
     print(f"[*] Merged after dedup: {len(records)}", flush=True)
 
+    max_check = int(os.environ.get("PROXY_MAX_CHECK", "0")) or None
+    if max_check:
+        records = records[:max_check]
+        print(f"[*] Limited to first {max_check} records", flush=True)
+
     records = filter_reachable(records)
-    print(f"[*] Reachable after TCP check: {len(records)}", flush=True)
+    print(f"[*] Reachable after TCP pre-screen: {len(records)}", flush=True)
+
+    records = check_via_api(records)
+    records.sort(key=lambda r: (r.get("risk") or {}).get("percent") or 0)
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
 
@@ -209,7 +258,8 @@ def main() -> int:
         f.write(f"# 账号: {SSTP_USER}  密码: {SSTP_PASS}\n")
         f.write(f"# 数据源: {PAGE_URL}\n")
         f.write(f"# 数据源: {SUB_URL}\n")
-        f.write("# 已通过 TCP 连通性验证，仅保留端口可达的服务器\n")
+        f.write(f"# 已通过 {proxy_check.CHECK_API} 验证 SSTP 连通性、测速与风险评级\n")
+        f.write("# 按风险评级升序排列（低风险在前）\n")
         f.write("# 格式: sstp://账号:密码@主机:端口\n")
         f.write("#\n")
         for r in records:

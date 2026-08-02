@@ -14,21 +14,20 @@
 
 import concurrent.futures as cf
 import json
+import os
 import re
 import socket
 import sys
 import time
-import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-CHECK_API = "https://check.socks5.cmliussss.net/check"
+import proxy_check
+
 TCP_CONCURRENCY = 80
-CHECK_CONCURRENCY = int(__import__("os").environ.get("PROXY_CHECK_CONCURRENCY", "6"))
 TCP_TIMEOUT = 3
-CHECK_TIMEOUT = 40
-MAX_CHECK = int(__import__("os").environ.get("PROXY_MAX_CHECK", "150"))
+MAX_CHECK = int(os.environ.get("PROXY_MAX_CHECK", "150"))
 
 SOURCES = {
     "socks5": [
@@ -97,57 +96,14 @@ def tcp_prescreen(targets: list[str]) -> list[str]:
     return ok
 
 
-def check_api(target: str, ptype: str) -> dict:
-    q = urllib.parse.urlencode({ptype: target})
-    url = f"{CHECK_API}?{q}"
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (proxy-list updater)"})
-    with urllib.request.urlopen(req, timeout=CHECK_TIMEOUT) as resp:
-        return json.loads(resp.read().decode("utf-8"))
-
-
-def as_score(v):
-    if isinstance(v, (int, float)):
-        return float(v)
-    m = re.match(r"\s*([0-9]+(?:\.[0-9]+)?)", str(v or ""))
-    return float(m.group(1)) if m else 0.0
-
-
-def calc_risk(exit_data: dict | None) -> dict | None:
-    if not exit_data:
-        return None
-    company = as_score((exit_data.get("company") or {}).get("abuser_score"))
-    asn = as_score((exit_data.get("asn") or exit_data.get("asnInfo") or {}).get("abuser_score"))
-    base = ((company + asn) / 2) * 5
-    flags = [exit_data.get("is_crawler"), exit_data.get("is_proxy"),
-             exit_data.get("is_vpn"), exit_data.get("is_tor"), exit_data.get("is_abuser")]
-    risk_count = sum(1 for f in flags if f is True)
-    score = base + risk_count * 0.15
-    if exit_data.get("is_bogon"):
-        score += 1.0
-    if base == 0 and risk_count == 0 and not exit_data.get("is_bogon"):
-        return None
-    pct = score * 100
-    if pct >= 100:
-        level = "critical"
-    elif pct >= 20:
-        level = "high"
-    elif pct >= 5:
-        level = "elevated"
-    elif pct >= 0.25:
-        level = "low"
-    else:
-        level = "verylow"
-    return {"score": round(score, 4), "percent": round(pct, 2), "level": level}
-
-
 def check_batch(targets: list[str], ptype: str) -> list[dict]:
     results: list[dict] = []
     limit = min(len(targets), MAX_CHECK)
-    print(f"[*] Checking via {CHECK_API} ({limit} targets, concurrency={CHECK_CONCURRENCY})...", flush=True)
-    with cf.ThreadPoolExecutor(max_workers=CHECK_CONCURRENCY) as pool:
+    print(f"[*] Checking via {proxy_check.CHECK_API} ({limit} targets, concurrency={proxy_check.CONCURRENCY})...", flush=True)
+    with cf.ThreadPoolExecutor(max_workers=proxy_check.CONCURRENCY) as pool:
         futures = {}
         for t in targets[:limit]:
-            futures[pool.submit(check_api, t, ptype)] = t
+            futures[pool.submit(proxy_check.check_api, t, ptype)] = t
         done = 0
         for fut in cf.as_completed(futures):
             t = futures[fut]
@@ -165,16 +121,8 @@ def check_batch(targets: list[str], ptype: str) -> list[dict]:
             }
             if data.get("success"):
                 exit_data = data.get("exit")
-                loc = exit_data or {}
-                loc_info = loc.get("location") or {}
-                dc = loc.get("datacenter") or {}
-                asn_obj = loc.get("asn") or loc.get("asnInfo") or {}
-                rec["exit_ip"] = loc.get("ip")
-                rec["country"] = loc_info.get("country") or dc.get("country")
-                rec["countryCode"] = loc_info.get("country_code") or dc.get("country")
-                rec["asn"] = asn_obj.get("asn")
-                rec["org"] = asn_obj.get("org") or asn_obj.get("descr")
-                rec["risk"] = calc_risk(exit_data)
+                rec.update(proxy_check.extract_exit_fields(exit_data))
+                rec["risk"] = proxy_check.calc_risk(exit_data)
             else:
                 rec["error"] = data.get("error")
             results.append(rec)
