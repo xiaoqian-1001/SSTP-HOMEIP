@@ -1,5 +1,5 @@
 # 免费 SOCKS5 代理列表
-# 更新时间: 2026-08-02 14:51:15 UTC
+# 更新时间: 2026-08-03 07:34:32 UTC
 # 已通过 TCP 预筛 + check.socks5.cmliussss.net 验证
 # 格式: ip:port
 # 仅保留成功且风险评级非 critical/high 的节点

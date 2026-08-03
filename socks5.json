@@ -1,15 +1,32 @@
 {
-  "updated": "2026-08-02 14:51:15 UTC",
+  "updated": "2026-08-03 07:34:32 UTC",
   "type": "socks5",
   "source": "https://proxydb.net/?protocol=socks5",
-  "count": 16,
+  "count": 21,
   "servers": [
+    {
+      "candidate": "107.151.148.153:1080",
+      "link": "socks5://107.151.148.153:1080",
+      "success": true,
+      "responseTime": 12237,
+      "colo": "IAD",
+      "exit_ip": "107.151.148.153",
+      "exit_country": "United States",
+      "exit_countryCode": "US",
+      "exit_asn": 21859,
+      "exit_org": "Zenlayer Inc",
+      "risk": {
+        "score": 0.3562,
+        "percent": 35.62,
+        "level": "high"
+      }
+    },
     {
       "candidate": "119.28.13.138:1080",
       "link": "socks5://119.28.13.138:1080",
       "success": true,
-      "responseTime": 2674,
-      "colo": "SEA",
+      "responseTime": 1553,
+      "colo": "IAD",
       "exit_ip": "119.28.13.138",
       "exit_country": "Hong Kong",
       "exit_countryCode": "HK",
@@ -22,11 +39,28 @@
       }
     },
     {
+      "candidate": "121.169.46.116:1090",
+      "link": "socks5://121.169.46.116:1090",
+      "success": true,
+      "responseTime": 1447,
+      "colo": "IAD",
+      "exit_ip": "121.169.46.116",
+      "exit_country": "South Korea",
+      "exit_countryCode": "KR",
+      "exit_asn": 4766,
+      "exit_org": "Korea Telecom",
+      "risk": {
+        "score": 0.3057,
+        "percent": 30.57,
+        "level": "high"
+      }
+    },
+    {
       "candidate": "123.58.219.171:10808",
       "link": "socks5://123.58.219.171:10808",
       "success": true,
-      "responseTime": 1470,
-      "colo": "SEA",
+      "responseTime": 2586,
+      "colo": "IAD",
       "exit_ip": "123.58.219.171",
       "exit_country": "Hong Kong",
       "exit_countryCode": "HK",
@@ -42,8 +76,8 @@
       "candidate": "124.156.185.140:1080",
       "link": "socks5://124.156.185.140:1080",
       "success": true,
-      "responseTime": 4483,
-      "colo": "SEA",
+      "responseTime": 1728,
+      "colo": "IAD",
       "exit_ip": "124.156.185.140",
       "exit_country": "Hong Kong",
       "exit_countryCode": "HK",
@@ -56,11 +90,28 @@
       }
     },
     {
+      "candidate": "141.148.158.143:1080",
+      "link": "socks5://141.148.158.143:1080",
+      "success": true,
+      "responseTime": 1786,
+      "colo": "IAD",
+      "exit_ip": "141.148.158.143",
+      "exit_country": "United States",
+      "exit_countryCode": "US",
+      "exit_asn": 31898,
+      "exit_org": "Oracle Corporation",
+      "risk": {
+        "score": 0.333,
+        "percent": 33.3,
+        "level": "high"
+      }
+    },
+    {
       "candidate": "144.24.111.128:1088",
       "link": "socks5://144.24.111.128:1088",
       "success": true,
-      "responseTime": 1735,
-      "colo": "SEA",
+      "responseTime": 1646,
+      "colo": "IAD",
       "exit_ip": "144.24.111.128",
       "exit_country": "India",
       "exit_countryCode": "IN",
@@ -76,8 +127,8 @@
       "candidate": "149.62.186.244:1080",
       "link": "socks5://149.62.186.244:1080",
       "success": true,
-      "responseTime": 1586,
-      "colo": "SEA",
+      "responseTime": 4176,
+      "colo": "IAD",
       "exit_ip": "149.62.186.244",
       "exit_country": "Italy",
       "exit_countryCode": "IT",
@@ -93,8 +144,8 @@
       "candidate": "159.195.49.27:1080",
       "link": "socks5://159.195.49.27:1080",
       "success": true,
-      "responseTime": 10082,
-      "colo": "SEA",
+      "responseTime": 890,
+      "colo": "IAD",
       "exit_ip": "159.195.49.27",
       "exit_country": "Germany",
       "exit_countryCode": "DE",
@@ -107,45 +158,28 @@
       }
     },
     {
-      "candidate": "159.195.61.240:1080",
-      "link": "socks5://159.195.61.240:1080",
+      "candidate": "173.249.20.169:9060",
+      "link": "socks5://173.249.20.169:9060",
       "success": true,
-      "responseTime": 1820,
-      "colo": "SEA",
-      "exit_ip": "179.60.149.108",
-      "exit_country": "Trinidad and Tobago",
-      "exit_countryCode": "TT",
-      "exit_asn": 209272,
-      "exit_org": "Alviva Holding Limited",
-      "risk": {
-        "score": 0.7348,
-        "percent": 73.47,
-        "level": "high"
-      }
-    },
-    {
-      "candidate": "171.25.158.95:1080",
-      "link": "socks5://171.25.158.95:1080",
-      "success": true,
-      "responseTime": 6771,
-      "colo": "SEA",
-      "exit_ip": "171.25.158.95",
+      "responseTime": 6484,
+      "colo": "IAD",
+      "exit_ip": "171.25.193.132",
       "exit_country": "Sweden",
       "exit_countryCode": "SE",
-      "exit_asn": 35100,
-      "exit_org": "Patrik Lagerman",
+      "exit_asn": 198093,
+      "exit_org": "Foreningen for digitala fri- och rattigheter",
       "risk": {
-        "score": 0.3782,
-        "percent": 37.82,
-        "level": "high"
+        "score": 1.0652,
+        "percent": 106.52,
+        "level": "critical"
       }
     },
     {
       "candidate": "185.185.80.58:1088",
       "link": "socks5://185.185.80.58:1088",
       "success": true,
-      "responseTime": 3382,
-      "colo": "SEA",
+      "responseTime": 916,
+      "colo": "IAD",
       "exit_ip": "185.185.80.58",
       "exit_country": "France",
       "exit_countryCode": "FR",
@@ -161,8 +195,8 @@
       "candidate": "193.25.215.182:22222",
       "link": "socks5://193.25.215.182:22222",
       "success": true,
-      "responseTime": 1287,
-      "colo": "SEA",
+      "responseTime": 6551,
+      "colo": "IAD",
       "exit_ip": "193.25.215.182",
       "exit_country": "United States",
       "exit_countryCode": "US",
@@ -175,11 +209,28 @@
       }
     },
     {
+      "candidate": "195.19.50.130:1080",
+      "link": "socks5://195.19.50.130:1080",
+      "success": true,
+      "responseTime": 6896,
+      "colo": "IAD",
+      "exit_ip": "195.19.50.130",
+      "exit_country": "Russia",
+      "exit_countryCode": "RU",
+      "exit_asn": 57529,
+      "exit_org": "ZAO GTNT",
+      "risk": {
+        "score": 0.368,
+        "percent": 36.8,
+        "level": "high"
+      }
+    },
+    {
       "candidate": "212.58.132.5:1080",
       "link": "socks5://212.58.132.5:1080",
       "success": true,
-      "responseTime": 1843,
-      "colo": "SEA",
+      "responseTime": 2213,
+      "colo": "IAD",
       "exit_ip": "212.58.132.5",
       "exit_country": "United Kingdom",
       "exit_countryCode": "GB",
@@ -192,19 +243,53 @@
       }
     },
     {
-      "candidate": "5.255.103.55:1080",
-      "link": "socks5://5.255.103.55:1080",
+      "candidate": "213.226.122.5:7788",
+      "link": "socks5://213.226.122.5:7788",
       "success": true,
-      "responseTime": 3458,
-      "colo": "SEA",
-      "exit_ip": "5.255.103.55",
-      "exit_country": "The Netherlands",
-      "exit_countryCode": "NL",
-      "exit_asn": 60404,
-      "exit_org": "The Infrastructure Group B.V.",
+      "responseTime": 6902,
+      "colo": "IAD",
+      "exit_ip": "213.226.122.5",
+      "exit_country": "Russia",
+      "exit_countryCode": "RU",
+      "exit_asn": 44149,
+      "exit_org": "Ubilink LLC",
       "risk": {
-        "score": 0.8858,
-        "percent": 88.58,
+        "score": 0.4808,
+        "percent": 48.08,
+        "level": "high"
+      }
+    },
+    {
+      "candidate": "34.124.190.108:8080",
+      "link": "socks5://34.124.190.108:8080",
+      "success": true,
+      "responseTime": 12326,
+      "colo": "IAD",
+      "exit_ip": "23.129.64.176",
+      "exit_country": "United States",
+      "exit_countryCode": "US",
+      "exit_asn": 396507,
+      "exit_org": "Emerald Onion",
+      "risk": {
+        "score": 3.1355,
+        "percent": 313.55,
+        "level": "critical"
+      }
+    },
+    {
+      "candidate": "45.95.232.35:1080",
+      "link": "socks5://45.95.232.35:1080",
+      "success": true,
+      "responseTime": 6295,
+      "colo": "IAD",
+      "exit_ip": "45.95.232.35",
+      "exit_country": "Switzerland",
+      "exit_countryCode": "CH",
+      "exit_asn": 215540,
+      "exit_org": "GLOBAL CONNECTIVITY SOLUTIONS LLP",
+      "risk": {
+        "score": 0.8315,
+        "percent": 83.15,
         "level": "high"
       }
     },
@@ -212,8 +297,8 @@
       "candidate": "5.255.117.127:1080",
       "link": "socks5://5.255.117.127:1080",
       "success": true,
-      "responseTime": 1148,
-      "colo": "SEA",
+      "responseTime": 790,
+      "colo": "IAD",
       "exit_ip": "5.255.117.127",
       "exit_country": "The Netherlands",
       "exit_countryCode": "NL",
@@ -226,28 +311,11 @@
       }
     },
     {
-      "candidate": "5.255.123.162:1080",
-      "link": "socks5://5.255.123.162:1080",
-      "success": true,
-      "responseTime": 2218,
-      "colo": "SEA",
-      "exit_ip": "5.255.123.162",
-      "exit_country": "The Netherlands",
-      "exit_countryCode": "NL",
-      "exit_asn": 60404,
-      "exit_org": "The Infrastructure Group B.V.",
-      "risk": {
-        "score": 0.8173,
-        "percent": 81.73,
-        "level": "high"
-      }
-    },
-    {
       "candidate": "51.222.13.193:10084",
       "link": "socks5://51.222.13.193:10084",
       "success": true,
-      "responseTime": 6978,
-      "colo": "SEA",
+      "responseTime": 2994,
+      "colo": "IAD",
       "exit_ip": "51.222.13.193",
       "exit_country": "Canada",
       "exit_countryCode": "CA",
@@ -260,11 +328,28 @@
       }
     },
     {
+      "candidate": "89.148.196.156:1080",
+      "link": "socks5://89.148.196.156:1080",
+      "success": true,
+      "responseTime": 1689,
+      "colo": "IAD",
+      "exit_ip": "89.148.196.156",
+      "exit_country": "Russia",
+      "exit_countryCode": "RU",
+      "exit_asn": 15640,
+      "exit_org": "MTS PJSC",
+      "risk": {
+        "score": 0.3052,
+        "percent": 30.52,
+        "level": "high"
+      }
+    },
+    {
       "candidate": "92.118.234.124:1080",
       "link": "socks5://92.118.234.124:1080",
       "success": true,
-      "responseTime": 4545,
-      "colo": "SEA",
+      "responseTime": 1990,
+      "colo": "IAD",
       "exit_ip": "92.118.234.124",
       "exit_country": "Finland",
       "exit_countryCode": "FI",
